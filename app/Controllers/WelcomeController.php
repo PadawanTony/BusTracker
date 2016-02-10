@@ -26,7 +26,7 @@ class WelcomeController extends Controller
      */
     public function index()
     {
-        $title = 'HubIT Club';
+        $title = 'Bus Tracker';
 
         $users = $this->userRepository->getAll();
 
