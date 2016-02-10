@@ -1,0 +1,21 @@
+{
+  "name": "hub-it/club",
+  "description": "Simple static site.Possibly to be used for the HubIT Git Workshop.",
+  "type": "project",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Rizart Dokollari",
+      "email": "r.dokollari@gmail.com"
+    }
+  ],
+  "require": {
+    "corneltek/pux": "^1.5",
+    "league/plates": "^3.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "HubIT\\": "app/"
+    }
+  }
+}
