@@ -48,10 +48,10 @@
             <a href="#about" onclick=$("#menu-close").click();>About</a>
         </li>
         <li>
-            <a href="#services" onclick=$("#menu-close").click();>Night's Watch</a>
+            <a href="#services" onclick=$("#menu-close").click();>Schedule</a>
         </li>
         <li>
-            <a href="#portfolio" onclick=$("#menu-close").click();>Portfolio</a>
+            <a href="#portfolio" onclick=$("#menu-close").click();>Item</a>
         </li>
         <li>
             <a href="#contact" onclick=$("#menu-close").click();>Contact</a>
@@ -75,10 +75,9 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2>We are coders by day, hackers by night. </h2>
+                <h2> The Shuttle Bus is a service offered to DEREE students </h2>
 
-                <p class="lead">Winter is coming | <a target="_blank"
-                                                      href="https://github.com/Hub-IT">HubIT GitHub</a>.</p>
+                <p class="lead"> All students can ride the bus for <b><u>FREE</u></b>. The bus has scheduled routes and predetermined stations while it encompasses a large district of transportation. There are routes to Glifada, Kiffisia, as well as the Nomismatokopeio Metro station. </p>
             </div>
         </div>
         <!-- /.row -->
