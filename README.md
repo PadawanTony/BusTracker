@@ -1,2 +1,2 @@
-# HubIT Club - Users
-Simple static site.Possibly to be used for the HubIT Git Workshop http://hubit-club.herokuapp.com/
+# BusTracker
+ Web application that allows you to track automobiles.
