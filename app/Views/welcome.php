@@ -28,6 +28,24 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+	<script src="http://maps.googleapis.com/maps/api/js"></script>
+	<script>
+		function initialize() {
+			var mapProp = {
+				center:new google.maps.LatLng(38.003722, 23.830312),
+				zoom:16,
+				scrollwheel: false,
+				navigationControl: true,
+				mapTypeControl: true,
+				scaleControl: true,
+				draggable: false,
+				mapTypeId:google.maps.MapTypeId.ROADMAP
+			};
+			var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+		}
+
+		google.maps.event.addDomListener(window, 'load', initialize);
+	</script>
 
 </head>
 
@@ -202,24 +220,22 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h3>The buttons below are impossible to resist.</h3>
-                <a href="#" class="btn btn-lg btn-light">Click Me!</a>
-                <a href="#" class="btn btn-lg btn-dark">Look at Me!</a>
+                <h3>Select the route you are interested in</h3>
+                <a href="#" class="btn btn-lg btn-dark">Glifada</a>
+                <a href="#" class="btn btn-lg btn-light">Nomismatokopeio</a>
+                <a href="#" class="btn btn-lg btn-dark">Kiffisia</a>
             </div>
         </div>
     </div>
 </aside>
 
 <!-- Map -->
-<section id="contact" class="map">
-    <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3143.872655193806!2d23.829772899999988!3d38.00343069999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a199a36941f749%3A0x25c4e883777ce4ab!2sGravias+17%2C+Ag.+Paraskevi+153+42!5e0!3m2!1sen!2sgr!4v1434305333016"></iframe>
-    <br/>
-    <small>
-        <a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a>
-    </small>
-    </iframe>
-</section>
+<!--<section id="contact" class="map">-->
+
+	<div id="googleMap"></div>
+
+<!--</section>-->
+
 
 <!-- Footer -->
 <footer>

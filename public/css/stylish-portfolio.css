@@ -176,7 +176,6 @@ hr.small {
 
 
 /* Call to Action */
-
 .call-to-action {
     padding: 50px 0;
 }
@@ -184,21 +183,27 @@ hr.small {
 .call-to-action .btn {
     margin: 10px;
 }
+/* End Call to Action */
+
 
 /* Map */
-
-.map {
-    height: 500px;
+#googleMap {
+    height: 100%;
+    width:100%;
 }
+/* End Map */
 
-@media(max-width:768px) {
-    .map {
-        height: 75%;
-    }
-}
 
 /* Footer */
-
 footer {
     padding: 100px 0;
+}
+/* End Footer */
+
+
+/* Media Queries */
+@media(max-width:768px) {
+    #googleMap {
+        height: 75%;
+    }
 }
