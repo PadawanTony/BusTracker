@@ -69,7 +69,7 @@
             <a href="#schedule" onclick=$("#menu-close").click();>Schedule</a>
         </li>
         <li>
-            <a href="#schedule" onclick=$("#menu-close").click();>Map</a>
+            <a href="#showMap" onclick=$("#menu-close").click();>Map</a>
         </li>
         <li>
             <a href="#contact" onclick=$("#menu-close").click();>Contact</a>
@@ -216,7 +216,7 @@
 
 
 <!-- Call to Action -->
-<aside class="call-to-action bg-primary">
+<aside id="showMap" class="call-to-action bg-primary">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
@@ -238,7 +238,7 @@
 
 
 <!-- Footer -->
-<footer>
+<footer id="contact">
     <div class="container">
         <div class="row">
             <div class="col-lg-10 col-lg-offset-1 text-center">
