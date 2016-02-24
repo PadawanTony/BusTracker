@@ -103,113 +103,233 @@
 
 
 <!-- schedule -->
-<section id="schedule" class="schedule">
+<section id="schedule" class="schedule bg-danger">
     <div class="container">
 
-	    <h1 class="bg-info text-center"> Schedule </h1>
-	    <table class="table table-striped table-bordered">
-		    <thead class="">
-		        <tr>
-			        <th class="text-center"> Stations </th>
-			        <th> Time </th>
-		        </tr>
-		    </thead>
-			<tbody>
-				<tr>
-					<td> St. Constantine Central Square, Glyfada (bus terminal) </td>
-					<td> 08:10 </td>
-				</tr>
-				<tr>
-					<td> Poseidonos Avenue - Oasis HOTEL </td>
-					<td> 08:15 </td>
-				</tr>
-				<tr>
-					<td> Poseidonos Avenue - SHELL Gas Station / Everest </td>
-					<td> 08:20 </td>
-				</tr>
-				<tr>
-					<td> Poseidonos Avenue - Poseidonio Music Hall </td>
-					<td> 08:22 </td>
-				</tr>
-				<tr>
-					<td> Poseidonos Avenue - Hellenikon Old Airport (main entrance) </td>
-					<td> 08:25 </td>
-				</tr>
-				<tr>
-					<td> Poseidonos Avenue and Alimos Avenue (after the traffic light) </td>
-					<td> 08:28 </td>
-				</tr>
-				<tr>
-					<td> Poseidonos Avenue and Amfitheas Avenue (Amfitheas Avenue bus stop) </td>
-					<td> 08:32 </td>
-				</tr>
-				<tr>
-					<td> Amfitheas Avenue - Rema Pikrodafnis </td>
-					<td> 08:36 </td>
-				</tr>
-				<tr>
-					<td> Amfitheas Avenue - Agia Triada (bus stop) </td>
-					<td> 08:40 </td>
-				</tr>
-				<tr>
-					<td> Syngrou Avenue - Diogenes Palace (Syngrou Avenue bus stop) </td>
-					<td> 08:45 </td>
-				</tr>
-				<tr>
-					<td> Syngrou Avenue - Agios Sostis </td>
-					<td> 08:50 </td>
-				</tr>
-				<tr>
-					<td> Syngrou Avenue - Intercontinental Hotel </td>
-					<td> 08:55 </td>
-				</tr>
-				<tr>
-					<td> Syngrou Avenue - Fix </td>
-					<td> 09:00 </td>
-				</tr>
-				<tr>
-					<td> Syntagma Square
-						​(Metro Station, Amalias Avenue, on the side of the Monument of the Unknown Soldier and the Greek Parliament) </td>
-					<td> 09:05 </td>
-				</tr>
-				<tr>
-					<td> Vasilissis Sofias Avenue (Evangelismos Metro station) </td>
-					<td> 09:10 </td>
-				</tr>
-				<tr>
-					<td> Megaron Mousikis Metro station </td>
-					<td> 09:15 </td>
-				</tr>
-				<tr>
-					<td> Mavili Square (bus stop) </td>
-					<td> 09:20 </td>
-				</tr>
-				<tr>
-					<td> Mesogion Avenue - Park School Gendarmerie (bus stop) </td>
-					<td> 09:25 </td>
-				</tr>
-				<tr>
-					<td> Katechaki Metro station </td>
-					<td> 09:30 </td>
-				</tr>
-				<tr>
-					<td> Ethniki Amina Metro station </td>
-					<td> 09:32 </td>
-				</tr>
-				<tr>
-					<td> Nomismatokopeion Metro station </td>
-					<td> 09:40 </td>
-				</tr>
-				<tr>
-					<td> Aghias Paraskevis Square - Everest </td>
-					<td> 09:45 </td>
-				</tr>
-				<tr>
-					<td> DEREE - The American College of Greece </td>
-					<td> 09:50 </td>
-				</tr>
-			</tbody>
-		</table>
+	    <h1 class="bg-danger text-center"> Schedule |
+		    <small>
+			    <div class="dropdown">
+				    <button class="btn bg-danger dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+					    <i class="fa fa-bus"></i>
+					    <strong> &nbsp; &nbsp; Select Route </strong>
+					    <span class="caret"></span>
+				    </button>
+				    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+					    <li class="parentGlifada"><a> Glifada </a></li>
+					    <li class="parentNom"><a> Nomismatokopeio </a></li>
+					    <li class="parentKifissia"><a> Kifissia</a></li>
+					    <li role="separator" class="divider"></li>
+				    </ul>
+			    </div>
+		    </small>
+	    </h1>
+
+	    <div class="childGlifada">
+            <table class="table table-striped table-bordered">
+	    <thead class="">
+	        <tr>
+		        <th class="text-center"> Stations </th>
+		        <th> Time </th>
+	        </tr>
+	    </thead>
+		<tbody>
+			<tr>
+				<td> <i class="fa fa-home"></i> St. Constantine Central Square, Glyfada (bus terminal) </td>
+				<td> 08:10 </td>
+			</tr>
+			<tr>
+				<td> Poseidonos Avenue - Oasis HOTEL </td>
+				<td> 08:15 </td>
+			</tr>
+			<tr>
+				<td> Poseidonos Avenue - SHELL Gas Station / Everest </td>
+				<td> 08:20 </td>
+			</tr>
+			<tr>
+				<td> Poseidonos Avenue - Poseidonio Music Hall </td>
+				<td> 08:22 </td>
+			</tr>
+			<tr>
+				<td> Poseidonos Avenue - Hellenikon Old Airport (main entrance) </td>
+				<td> 08:25 </td>
+			</tr>
+			<tr>
+				<td> Poseidonos Avenue and Alimos Avenue (after the traffic light) </td>
+				<td> 08:28 </td>
+			</tr>
+			<tr>
+				<td> Poseidonos Avenue and Amfitheas Avenue (Amfitheas Avenue bus stop) </td>
+				<td> 08:32 </td>
+			</tr>
+			<tr>
+				<td> Amfitheas Avenue - Rema Pikrodafnis </td>
+				<td> 08:36 </td>
+			</tr>
+			<tr>
+				<td> Amfitheas Avenue - Agia Triada (bus stop) </td>
+				<td> 08:40 </td>
+			</tr>
+			<tr>
+				<td> Syngrou Avenue - Diogenes Palace (Syngrou Avenue bus stop) </td>
+				<td> 08:45 </td>
+			</tr>
+			<tr>
+				<td> Syngrou Avenue - Agios Sostis </td>
+				<td> 08:50 </td>
+			</tr>
+			<tr>
+				<td> Syngrou Avenue - Intercontinental Hotel </td>
+				<td> 08:55 </td>
+			</tr>
+			<tr>
+				<td> Syngrou Avenue - Fix </td>
+				<td> 09:00 </td>
+			</tr>
+			<tr>
+				<td> Syntagma Square
+					​(Metro Station, Amalias Avenue, on the side of the Monument of the Unknown Soldier and the Greek Parliament) </td>
+				<td> 09:05 </td>
+			</tr>
+			<tr>
+				<td> Vasilissis Sofias Avenue (Evangelismos Metro station) </td>
+				<td> 09:10 </td>
+			</tr>
+			<tr>
+				<td> Megaron Mousikis Metro station </td>
+				<td> 09:15 </td>
+			</tr>
+			<tr>
+				<td> Mavili Square (bus stop) </td>
+				<td> 09:20 </td>
+			</tr>
+			<tr>
+				<td> Mesogion Avenue - Park School Gendarmerie (bus stop) </td>
+				<td> 09:25 </td>
+			</tr>
+			<tr>
+				<td> Katechaki Metro station </td>
+				<td> 09:30 </td>
+			</tr>
+			<tr>
+				<td> Ethniki Amina Metro station </td>
+				<td> 09:32 </td>
+			</tr>
+			<tr>
+				<td> Nomismatokopeion Metro station </td>
+				<td> 09:40 </td>
+			</tr>
+			<tr>
+				<td> Aghias Paraskevis Square - Everest </td>
+				<td> 09:45 </td>
+			</tr>
+			<tr>
+				<td> <i class="fa fa-university"></i> DEREE - The American College of Greece </td>
+				<td> 09:50 </td>
+			</tr>
+		</tbody>
+	</table>
+	    </div>
+	    <div class="childNom">
+		    <table class="table table-striped table-bordered">
+			    <thead class="">
+			    <tr>
+				    <th class="text-center"> Stations </th>
+				    <th> Time </th>
+			    </tr>
+			    </thead>
+			    <tbody>
+			    <tr>
+				    <td> <i class="fa fa-subway"></i> &nbsp; Nomismatokopeio Metro station </td>
+				    <td> 08:10 </td>
+			    </tr>
+			    <tr>
+				    <td> <i class="fa fa-university"></i> DEREE - The American College of Greece </td>
+				    <td> 09:50 </td>
+			    </tr>
+			    </tbody>
+		    </table>
+	    </div>
+	    <div class="childKifissia">
+		    <table class="table table-striped table-bordered">
+			    <thead class="">
+			    <tr>
+				    <th class="text-center"> Stations </th>
+				    <th> Time </th>
+			    </tr>
+			    </thead>
+			    <tbody>
+			    <tr>
+				    <td><i class="fa fa-home"></i> Somewhere in Kifissia </td>
+				    <td> 08:32 </td>
+			    </tr>
+			    <tr>
+				    <td> Amfitheas Avenue - Rema Pikrodafnis </td>
+				    <td> 08:36 </td>
+			    </tr>
+			    <tr>
+				    <td> Amfitheas Avenue - Agia Triada (bus stop) </td>
+				    <td> 08:40 </td>
+			    </tr>
+			    <tr>
+				    <td> Syngrou Avenue - Diogenes Palace (Syngrou Avenue bus stop) </td>
+				    <td> 08:45 </td>
+			    </tr>
+			    <tr>
+				    <td> Syngrou Avenue - Agios Sostis </td>
+				    <td> 08:50 </td>
+			    </tr>
+			    <tr>
+				    <td> Syngrou Avenue - Intercontinental Hotel </td>
+				    <td> 08:55 </td>
+			    </tr>
+			    <tr>
+				    <td> Syngrou Avenue - Fix </td>
+				    <td> 09:00 </td>
+			    </tr>
+			    <tr>
+				    <td> Syntagma Square
+					    ​(Metro Station, Amalias Avenue, on the side of the Monument of the Unknown Soldier and the Greek Parliament) </td>
+				    <td> 09:05 </td>
+			    </tr>
+			    <tr>
+				    <td> Vasilissis Sofias Avenue (Evangelismos Metro station) </td>
+				    <td> 09:10 </td>
+			    </tr>
+			    <tr>
+				    <td> Megaron Mousikis Metro station </td>
+				    <td> 09:15 </td>
+			    </tr>
+			    <tr>
+				    <td> Mavili Square (bus stop) </td>
+				    <td> 09:20 </td>
+			    </tr>
+			    <tr>
+				    <td> Mesogion Avenue - Park School Gendarmerie (bus stop) </td>
+				    <td> 09:25 </td>
+			    </tr>
+			    <tr>
+				    <td> Katechaki Metro station </td>
+				    <td> 09:30 </td>
+			    </tr>
+			    <tr>
+				    <td> Ethniki Amina Metro station </td>
+				    <td> 09:32 </td>
+			    </tr>
+			    <tr>
+				    <td> Nomismatokopeion Metro station </td>
+				    <td> 09:40 </td>
+			    </tr>
+			    <tr>
+				    <td> Aghias Paraskevis Square - Everest </td>
+				    <td> 09:45 </td>
+			    </tr>
+			    <tr>
+				    <td> <i class="fa fa-university"></i> DEREE - The American College of Greece </td>
+				    <td> 09:50 </td>
+			    </tr>
+			    </tbody>
+		    </table>
+	    </div>
 
     </div><!-- /.container -->
 </section><!-- /.schedule -->
@@ -218,14 +338,27 @@
 <!-- Call to Action -->
 <aside id="showMap" class="call-to-action bg-primary">
     <div class="container">
+
         <div class="row">
-            <div class="col-lg-12 text-center">
-                <h3>Select the route you are interested in</h3>
-                <a href="#" class="btn btn-lg btn-dark">Glifada</a>
-                <a href="#" class="btn btn-lg btn-light">Nomismatokopeio</a>
-                <a href="#" class="btn btn-lg btn-dark">Kiffisia</a>
+            <div class="col-xs-12 text-center">
+	            <h3>Select the route you are interested in:</h3>
             </div>
-        </div>
+	    </div>
+	    <div class="row col-md-offset-3">
+	        <div class="col-xs-12 col-sm-4 col-md-2 center-block">
+		        <a href="#" class="col-xs-12 btn btn-lg btn-dark">Glifada</a>
+		    </div>
+		    <div class="col-xs-12 col-sm-4 center-block">
+			    <a href="#" class="col-xs-12 btn btn-lg btn-light">Nomismatokopeio</a>
+		    </div>
+		    <div class="col-xs-12 col-sm-4 col-md-2 center-block">
+			    <a href="#" class=" col-xs-12 btn btn-lg btn-dark">Kiffisia</a>
+		    </div>
+
+
+
+	    </div>
+
     </div>
 </aside>
 
@@ -239,7 +372,7 @@
 
 <!-- Footer -->
 <footer id="contact">
-    <div class="container">
+    <div class="container ddd">
         <div class="row">
             <div class="col-lg-10 col-lg-offset-1 text-center">
                 <h4><strong><?= $this->e($title) ?></strong>
@@ -303,6 +436,31 @@
             }
         });
     });
+</script>
+
+<script>
+	$(".childGlifada").hide();
+	$(".childNom").show();
+	$(".childKifissia").hide();
+
+	$(".parentGlifada").click(function(){
+//		$(".ddd").children().slideToggle(700);
+		$(".childGlifada").show(700);
+		$(".childNom").hide(700);
+		$(".childKifissia").hide(700);
+	});
+
+	$(".parentNom").click(function(){
+		$(".childGlifada").hide(700);
+		$(".childNom").show(700);
+		$(".childKifissia").hide(700);
+	});
+
+	$(".parentKifissia").click(function(){
+		$(".childGlifada").hide(700);
+		$(".childNom").hide(700);
+		$(".childKifissia").show(700);
+	});
 </script>
 
 </body>

@@ -1,12 +1,12 @@
 {
   "name": "hub-it/club",
-  "description": "Simple static site.Possibly to be used for the HubIT Git Workshop.",
+  "description": "Web application for the DEREE - Bus Tracking system.",
   "type": "project",
   "license": "MIT",
   "authors": [
     {
-      "name": "Rizart Dokollari",
-      "email": "r.dokollari@gmail.com"
+      "name": "Antony Kalogeropoulos",
+      "email": "anthonykalogeropoulos@gmail.com"
     }
   ],
   "require": {

@@ -171,9 +171,13 @@ hr.small {
 /* Schedule */
 
 .schedule {
-    /*padding: 50px 0;*/
+    padding: 0 0 50px 0;
 }
 
+.table-bordered {
+    border-collapse: separate;
+    border: 1px solid #000;
+}
 
 /* Call to Action */
 .call-to-action {
@@ -201,9 +205,33 @@ footer {
 /* End Footer */
 
 
+/* Modify Bootstrap CSS */
+.center-block {
+    float: none;
+    margin: 0 auto;
+}
+/* End Modify Bootstrap */
+
+
 /* Media Queries */
+@media (min-width: 768px) {
+    .center-block {
+        float: left;
+    }
+}
 @media(max-width:768px) {
     #googleMap {
         height: 75%;
     }
 }
+/* End Media Queries */
+
+.dropdown {
+    display: inline;
+    /*margin: auto;*/
+    /*border: 1px solid #323232;*/
+}
+
+/*.dropdown-toggle {*/
+    /*background-color: #2eaaa4;*/
+/*}*/

@@ -1,0 +1,23 @@
+{
+  "name": "BusTracker",
+  "authors": [
+    "Antony <anthonykalogeropoulos@gmail.com>"
+  ],
+  "description": "Web app for DEREE - Bus Tracker",
+  "main": "public/index.php",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower_components/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6"
+  }
+}
