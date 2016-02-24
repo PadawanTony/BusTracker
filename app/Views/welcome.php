@@ -341,29 +341,31 @@
 
         <div class="row">
             <div class="col-xs-12 text-center">
-	            <h3>Select the route you are interested in:</h3>
+	            <h3>Select Route to View in Map: &nbsp;
+		            <small>
+			            <div class="dropdown" id="dropdownForMap">
+				            <button class="btn bg-danger dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+					            <i class="fa fa-map-marker"></i>
+					            <strong> &nbsp; &nbsp; Select Route </strong>
+					            <span class="caret"></span>
+				            </button>
+				            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+					            <li class="parentGlifadaMap"><a> Glifada </a></li>
+					            <li class="parentNomMap"><a> Nomismatokopeio </a></li>
+					            <li class="parentKifissiaMap"><a> Kifissia</a></li>
+					            <li role="separator" class="divider"></li>
+				            </ul>
+		                </div>
+		            </small>
+	            </h3>
             </div>
 	    </div>
-	    <div class="row col-md-offset-3">
-	        <div class="col-xs-12 col-sm-4 col-md-2 center-block">
-		        <a href="#" class="col-xs-12 btn btn-lg btn-dark">Glifada</a>
-		    </div>
-		    <div class="col-xs-12 col-sm-4 center-block">
-			    <a href="#" class="col-xs-12 btn btn-lg btn-light">Nomismatokopeio</a>
-		    </div>
-		    <div class="col-xs-12 col-sm-4 col-md-2 center-block">
-			    <a href="#" class=" col-xs-12 btn btn-lg btn-dark">Kiffisia</a>
-		    </div>
 
-
-
-	    </div>
 
     </div>
 </aside>
 
 <!-- Map -->
-<!--<section id="contact" class="map">-->
 
 	<div id="googleMap"></div>
 
@@ -372,7 +374,7 @@
 
 <!-- Footer -->
 <footer id="contact">
-    <div class="container ddd">
+    <div class="container">
         <div class="row">
             <div class="col-lg-10 col-lg-offset-1 text-center">
                 <h4><strong><?= $this->e($title) ?></strong>
