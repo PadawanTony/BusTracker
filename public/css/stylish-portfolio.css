@@ -5,7 +5,6 @@
  */
 
 /* Global Styles */
-
 html,
 body {
     width: 100%;
@@ -30,7 +29,6 @@ body {
 }
 
 /* Custom Button Styles */
-
 .btn-dark {
     border-radius: 0;
     color: #fff;
@@ -58,13 +56,12 @@ body {
 }
 
 /* Custom Horizontal Rule */
-
 hr.small {
     max-width: 100px;
 }
 
-/* Side Menu */
 
+/* Begin Side Menu */
 #sidebar-wrapper {
     z-index: 1000;
     position: fixed;
@@ -147,9 +144,10 @@ hr.small {
 .toggle {
     margin: 5px 5px 0 0;
 }
+/* End Side Menu */
 
-/* Header */
 
+/* Begin Header */
 .header {
     display: table;
     position: relative;
@@ -161,44 +159,57 @@ hr.small {
     background-size: cover;
     -o-background-size: cover;
 }
+/* End Header */
 
-/* About */
 
+/* Begin About */
 .about {
     padding: 50px 0;
 }
+/* End About */
 
-/* Schedule */
 
+/* Begin Schedule */
 .schedule {
     padding: 0 0 50px 0;
+}
+
+.dropdown {
+    display: inline;
+}
+
+.dropdown-menu {
+    cursor: pointer;
 }
 
 .table-bordered {
     border-collapse: separate;
     border: 1px solid #000;
 }
+/* End Schedule */
 
-/* Call to Action */
+
+/* Befin Call to Action */
 .call-to-action {
-    padding: 50px 0;
+    height: 20%;
+    padding: 25px 0;
 }
 
-.call-to-action .btn {
-    margin: 10px;
+#dropdownForMap {
+    color: #0f0f0f;
 }
 /* End Call to Action */
 
 
-/* Map */
+/* Begin Map */
 #googleMap {
-    height: 100%;
+    height: 80%;
     width:100%;
 }
 /* End Map */
 
 
-/* Footer */
+/* Begin Footer */
 footer {
     padding: 100px 0;
 }
@@ -223,15 +234,9 @@ footer {
     #googleMap {
         height: 75%;
     }
+
+    #dropdownMenu2 {
+        margin-top: 10px;
+    }
 }
 /* End Media Queries */
-
-.dropdown {
-    display: inline;
-    /*margin: auto;*/
-    /*border: 1px solid #323232;*/
-}
-
-/*.dropdown-toggle {*/
-    /*background-color: #2eaaa4;*/
-/*}*/
