@@ -213,6 +213,15 @@ hr.small {
 footer {
     padding: 100px 0;
 }
+
+#contactTable {
+    margin: 0 auto;
+    text-align: left;
+}
+
+#contactTable td {
+    padding-right: 5px;
+}
 /* End Footer */
 
 
