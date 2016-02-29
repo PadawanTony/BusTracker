@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,8 +18,7 @@
 
     <!-- Custom Fonts -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic"
-          rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -28,25 +26,9 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+	<!--Import Google Maps API-->
 	<script src="http://maps.googleapis.com/maps/api/js"></script>
-	<script>
-		function initialize() {
-			var mapProp = {
-				center:new google.maps.LatLng(38.003722, 23.830312),
-				zoom:16,
-				scrollwheel: false,
-				navigationControl: true,
-				mapTypeControl: true,
-				scaleControl: true,
-				draggable: false,
-				mapTypeId:google.maps.MapTypeId.ROADMAP
-			};
-			var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
-		}
-
-		google.maps.event.addDomListener(window, 'load', initialize);
-	</script>
-
 </head>
 
 <body>
@@ -380,7 +362,7 @@
                 <h3><strong><?= $this->e($title) ?></strong>
                 </h3>
 	            <hr class="small">
-	            
+
 	            <table id="contactTable">
 		            <tr>
 			            <td> <i class="fa fa-thumb-tack fa-fw"></i> </td>
@@ -450,6 +432,7 @@
     });
 </script>
 
+<!-- My JavaScript -->
 <script>
 	$(".childGlifada").hide();
 	$(".childNom").show();
@@ -473,6 +456,41 @@
 		$(".childNom").hide(700);
 		$(".childKifissia").show(700);
 	});
+</script>
+
+<script>
+	var mapContainer = document.getElementById("googleMap");
+	function getLocation() {
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(showMap);
+		} else {
+			mapContainer.innerHTML = "Geolocation is not supported by this browser.";
+		}
+	}
+
+	//This function returns the position
+	function showPosition(position) {
+		mapContainer.innerHTML = "Latitude: " + position.coords.latitude +
+			"<br>Longitude: " + position.coords.longitude;
+	}
+
+	function showMap(position) {
+		var myLatLong = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+		var mapOptions = {
+			center: myLatLong,
+			zoom:16,
+			scrollwheel: false,
+			navigationControl: true,
+			mapTypeControl: true,
+			scaleControl: true,
+			draggable: false,
+			mapTypeId:google.maps.MapTypeId.ROADMAP
+		};
+
+		var map = new google.maps.Map(mapContainer, mapOptions);
+	}
+
+	google.maps.event.addDomListener(window, 'load', getLocation());
 </script>
 
 </body>
