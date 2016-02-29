@@ -59,6 +59,7 @@
     </ul>
 </nav>
 
+
 <!-- Header -->
 <header id="top" class="header">
     <div class="text-vertical-center">
@@ -69,6 +70,7 @@
         <a href="#about" class="btn btn-dark btn-lg">Find Out More</a>
     </div>
 </header>
+
 
 <!-- About -->
 <section id="about" class="about">
@@ -347,10 +349,9 @@
     </div>
 </aside>
 
+
 <!-- Map -->
-
 	<div id="googleMap"></div>
-
 <!--</section>-->
 
 
@@ -396,6 +397,7 @@
         </div>
     </div>
 </footer>
+
 
 <!-- jQuery -->
 <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
@@ -462,17 +464,21 @@
 	var mapContainer = document.getElementById("googleMap");
 	function getLocation() {
 		if (navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition(showMap);
+			//navigator.geolocation.getCurrentPosition(showMap);  //Get position once
+			navigator.geolocation.watchPosition(showMap);  //Get position continuously
+
 		} else {
 			mapContainer.innerHTML = "Geolocation is not supported by this browser.";
 		}
 	}
 
+/*
 	//This function returns the position
 	function showPosition(position) {
 		mapContainer.innerHTML = "Latitude: " + position.coords.latitude +
 			"<br>Longitude: " + position.coords.longitude;
 	}
+*/
 
 	function showMap(position) {
 		var myLatLong = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
@@ -486,8 +492,13 @@
 			draggable: false,
 			mapTypeId:google.maps.MapTypeId.ROADMAP
 		};
-
 		var map = new google.maps.Map(mapContainer, mapOptions);
+
+		var marker = new google.maps.Marker({
+			position: myLatLong,
+			map: map,
+			title: 'You are here!'
+		});
 	}
 
 	google.maps.event.addDomListener(window, 'load', getLocation());
