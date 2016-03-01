@@ -382,13 +382,13 @@
                 <br>
                 <ul class="list-inline">
                     <li>
-                        <a href="#"><i class="fa fa-facebook fa-fw fa-3x"></i></a>
+                        <a href="http://www.acg.edu/"><img src="img/dereeLogo.png" alt="Deree_Logo"></a>
                     </li>
+	                <li>
+		                <a href="http://www.acg.edu/"><img src="img/dereeOfficialLogo.jpg" alt="Deree_Official_Logo" style="width: 55px;"></a>
+	                </li>
                     <li>
-                        <a href="#"><i class="fa fa-twitter fa-fw fa-3x"></i></a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-dribbble fa-fw fa-3x"></i></a>
+                        <a href="http://www.pierce.gr/"><img src="img/pierceLogo.JPG" alt="Pierce_Logo" style="width: 55px; height: 45px;"></a>
                     </li>
                 </ul>
                 <hr class="small">

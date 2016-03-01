@@ -222,6 +222,11 @@ footer {
 #contactTable td {
     padding-right: 5px;
 }
+
+#contact img {
+    height: 50px;
+    width: 50px;
+}
 /* End Footer */
 
 
