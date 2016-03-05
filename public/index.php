@@ -26,10 +26,18 @@ require __DIR__ . '/../vendor/autoload.php';
 |
 */
 $mux = new \Pux\Mux;
+$dotenv = new Dotenv\Dotenv(__DIR__ . DIRECTORY_SEPARATOR . "..");
 
-$mux->get('/', ['HubIT\Controllers\WelcomeController', 'index']);
+$dotenv->load();
+$dotenv->required('BASE_DIR');
 
-$route = $mux->dispatch($_SERVER['REQUEST_URI']);
+$baseUrl = getenv('BASE_DIR');
+$requestUri = $_SERVER['REQUEST_URI'];
+
+$mux->get("$baseUrl", ['HubIT\Controllers\WelcomeController', 'index']);
+//$mux->get("{$baseUrl}about", ['HubIT\Controllers\WelcomeController', 'about']);
+
+$route = $mux->dispatch($requestUri);
 
 echo Executor::execute($route);
 
