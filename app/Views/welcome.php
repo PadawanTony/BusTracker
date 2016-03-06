@@ -71,6 +71,12 @@
     </div>
 </header>
 
+<?php
+var_dump($latlng);
+echo $latlng['message'][0]['lat'];
+echo $latlng['message'][0]['lng'];
+?>
+<?= $this->e($latlng['message'][0]['lng']) ?>
 
 <!-- About -->
 <section id="about" class="about">
@@ -481,7 +487,10 @@
 */
 
 	function showMap(position) {
-		var myLatLong = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+		var lng = <?php echo $latlng['message'][0]['lng']; ?>;
+		var lat = <?php echo $latlng['message'][0]['lat']; ?>;
+		var myLatLong = new google.maps.LatLng(lat, lng);
+
 		var mapOptions = {
 			center: myLatLong,
 			zoom:16,
@@ -497,7 +506,8 @@
 		var marker = new google.maps.Marker({
 			position: myLatLong,
 			map: map,
-			title: 'You are here!'
+			title: 'You are here!',
+			icon: 'img/busIcon3.png'
 		});
 	}
 

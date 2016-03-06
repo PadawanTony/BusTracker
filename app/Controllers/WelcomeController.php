@@ -26,6 +26,10 @@ class WelcomeController extends Controller
      */
     public function index()
     {
+        include __DIR__ . '/../../webServices/getCoordsWeb.php';
+
+        $latlng = getCoords();
+
         $title = 'Bus Tracker';
 
         $users = $this->userRepository->getAll();
@@ -34,6 +38,6 @@ class WelcomeController extends Controller
 
         $randomQuote = $this->quotesRepository->getRandom();
 
-        return $this->views->render('welcome', compact('users', 'title', 'randomQuote'));
+        return $this->views->render('welcome', compact('users', 'title', 'randomQuote', 'latlng'));
     }
 }
