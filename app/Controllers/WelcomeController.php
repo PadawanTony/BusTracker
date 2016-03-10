@@ -28,7 +28,10 @@ class WelcomeController extends Controller
     {
         include __DIR__ . '/../../webServices/getCoordsWeb.php';
 
-        $latlng = getCoords();
+	    $route = $_POST['action'];
+
+	    if ($route == 'to_glifada') $latlng = getCoords_toGlifada();
+	    else $latlng = getCoords_toKifisia();
 
         $title = 'Bus Tracker';
 

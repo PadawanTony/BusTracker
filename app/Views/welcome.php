@@ -71,13 +71,6 @@
     </div>
 </header>
 
-<?php
-var_dump($latlng);
-echo $latlng['message'][0]['lat'];
-echo $latlng['message'][0]['lng'];
-?>
-<?= $this->e($latlng['message'][0]['lng']) ?>
-
 <!-- About -->
 <section id="about" class="about">
     <div class="container">
@@ -340,10 +333,12 @@ echo $latlng['message'][0]['lng'];
 					            <span class="caret"></span>
 				            </button>
 				            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-					            <li class="parentGlifadaMap"><a> Glifada </a></li>
-					            <li class="parentNomMap"><a> Nomismatokopeio </a></li>
-					            <li class="parentKifissiaMap"><a> Kifissia</a></li>
-					            <li role="separator" class="divider"></li>
+					            <li> <a><input type="submit" class="MapRoutes" name="parentGlifadaMap" value="to_glifada" /> </a></li>
+					            <li> <a><input type="submit" class="MapRoutes" name="parentNomMap" value="to_glifada" /></a></li>
+					            <li> <a><input type="submit" class="MapRoutes" name="parentKifissiaMap" value="to_kifisia" /></a></li>
+<!--					            <li class="parentNomMap"><a> Nomismatokopeio </a></li>-->
+<!--					            <li class="parentKifissiaMap"><a> Kifissia</a></li>-->
+<!--					            <li role="separator" class="divider"></li>-->
 				            </ul>
 		                </div>
 		            </small>
@@ -441,7 +436,7 @@ echo $latlng['message'][0]['lng'];
 </script>
 
 <!-- My JavaScript -->
-<script>
+<script> //Show-Hide Routes
 	$(".childGlifada").hide();
 	$(".childNom").show();
 	$(".childKifissia").hide();
@@ -470,7 +465,7 @@ echo $latlng['message'][0]['lng'];
 	var mapContainer = document.getElementById("googleMap");
 	function getLocation() {
 		if (navigator.geolocation) {
-			//navigator.geolocation.getCurrentPosition(showMap);  //Get position once
+//			navigator.geolocation.getCurrentPosition(showMap);  //Get position once
 			navigator.geolocation.watchPosition(showMap);  //Get position continuously
 
 		} else {
@@ -487,8 +482,8 @@ echo $latlng['message'][0]['lng'];
 */
 
 	function showMap(position) {
-		var lng = <?php echo $latlng['message'][0]['lng']; ?>;
 		var lat = <?php echo $latlng['message'][0]['lat']; ?>;
+		var lng = <?php echo $latlng['message'][0]['lng']; ?>;
 		var myLatLong = new google.maps.LatLng(lat, lng);
 
 		var mapOptions = {
@@ -501,17 +496,44 @@ echo $latlng['message'][0]['lng'];
 			draggable: false,
 			mapTypeId:google.maps.MapTypeId.ROADMAP
 		};
-		var map = new google.maps.Map(mapContainer, mapOptions);
+		map = new google.maps.Map(mapContainer, mapOptions);
 
-		var marker = new google.maps.Marker({
-			position: myLatLong,
-			map: map,
-			title: 'You are here!',
-			icon: 'img/busIcon3.png'
-		});
+		function setMarker() {
+			marker = new google.maps.Marker({
+				position: myLatLong,
+				map: map,
+				title: 'You are here!',
+				icon: 'img/busIcon3.png'
+			});
+		}
+
+		setMarker();
+
 	}
 
 	google.maps.event.addDomListener(window, 'load', getLocation());
+
+	$(document).ready(function(){
+		$('.MapRoutes').click(function(){
+			var clickBtnValue = $(this).val();
+			$.ajax({
+				type: "POST",
+				url: "index.php",
+				data: { 'action': clickBtnValue }
+			}).done(function( msg ) {
+				var lat = <?php echo $latlng['message'][0]['lat']; ?>;
+				var lng = <?php echo $latlng['message'][0]['lng']; ?>;
+				var myLatLong = new google.maps.LatLng(lat, lng);
+				marker = new google.maps.Marker({
+					position: myLatLong,
+					map: map,
+					title: 'You are here!',
+					icon: 'img/busIcon3.png'
+				});
+//				alert( "Done: " + msg );
+			});
+		});
+	});
 </script>
 
 </body>
