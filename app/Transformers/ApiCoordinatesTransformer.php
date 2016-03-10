@@ -16,5 +16,13 @@ class ApiCoordinatesTransformer extends Transformer
 	 */
 	public function transform($item)
 	{
+		return [
+			"ID"      => $item["ID"],
+			"routeID" => $item["routeID"],
+			"theDate" => $item["theDate"],
+			"theTime" => $item["theTime"],
+			"lat"     => $item["lat"],
+			"lng"     => $item["lng"],
+		];
 	}
 }

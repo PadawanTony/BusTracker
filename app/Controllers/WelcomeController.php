@@ -2,9 +2,6 @@
 
 use HubIT\Repositories\QuoteRepositories\StaticQuoteRepository;
 use HubIT\Repositories\UserRepositories\StaticUserRepository;
-use HubIT\Requests\PostCoordinatesRequest;
-use HubIT\Services\CoordinatesService;
-use HubIT\Transformers\ApiCoordinatesTransformer;
 
 /**
  * @author Rizart Dokollari <r.dokollari@gmail.com>
@@ -22,18 +19,6 @@ class WelcomeController extends Controller
 	 * @var StaticQuoteRepository
 	 */
 	private $quotesRepository;
-	/**
-	 * @var CoordinatesService
-	 */
-	private $coordinatesService;
-	/**
-	 * @var PostCoordinatesRequest
-	 */
-	private $postCoordinatesRequest;
-	/**
-	 * @var ApiCoordinatesTransformer
-	 */
-	private $apiCoordinatesTransformer;
 
 	/**
 	 * WelcomeController constructor.
@@ -44,9 +29,6 @@ class WelcomeController extends Controller
 
 		$this->userRepository = new StaticUserRepository();
 		$this->quotesRepository = new StaticQuoteRepository();
-		$this->coordinatesService = new CoordinatesService();
-		$this->postCoordinatesRequest = new PostCoordinatesRequest();
-		$this->apiCoordinatesTransformer = new ApiCoordinatesTransformer();
 	}
 
 	/**
@@ -65,19 +47,9 @@ class WelcomeController extends Controller
 		return $this->views->render('welcome', compact('users', 'title', 'randomQuote', 'latlng'));
 	}
 
-	/**
-	 * Async return coordinate resulsts.
-	 *
-	 * @return string
-	 */
-	public function getCoordinates()
+
+	public function error404()
 	{
-		$this->postCoordinatesRequest->validate();
-
-		$location = $this->postCoordinatesRequest->getLocation();
-
-		$coordinates = $this->coordinatesService->getCoordinates($location);
-
-		return $this->apiCoordinatesTransformer->transform($coordinates);
+		return '404';
 	}
 }

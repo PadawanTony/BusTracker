@@ -7,14 +7,16 @@
  * @since  10/03/16
  */
 use HubIT\Services\CoordinatesService;
+use Pux\Mux;
 
 /**
  * Class PostCoordinatesRequest
  *
  * @package HubIT\Requests
  */
-class PostCoordinatesRequest implements Request
+class PostCoordinatesRequest extends Mux implements Request
 {
+	const LOCATION = 'location';
 	/**
 	 * Allowed locations.
 	 *
@@ -28,20 +30,28 @@ class PostCoordinatesRequest implements Request
 	 */
 	public function validate()
 	{
-		if ( ! isset($_POST['action']) ||
-			! in_array($_POST['action'], $this->allowedLocations, true)
-		)
+		if ( ! isset($_POST[ self::LOCATION ]))
 		{
-			$response["error"] = 404;
+			$response["error"] = 403;
 
-			$response["message"] = "Not Found";
+			$response["message"] = "Missing parameter: 'location'";
 
 			exit(json_encode($response));
 		}
+
+		if ( ! in_array($_POST[ self::LOCATION ], $this->allowedLocations, true))
+		{
+			$response["error"] = 403;
+
+			$response["message"] = "Location not found";
+
+			exit(json_encode($response));
+		}
+
 	}
 
 	public function getLocation()
 	{
-		return $_POST['action'];
+		return $_POST[self::LOCATION];
 	}
 }

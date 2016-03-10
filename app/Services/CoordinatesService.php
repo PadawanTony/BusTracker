@@ -1,6 +1,7 @@
 <?php namespace HubIT\Services;
 
 use HubIT\Database;
+use PDOException;
 
 /**
  * Class CoordinatesService
@@ -14,6 +15,8 @@ class CoordinatesService extends Database
 
 	/**
 	 * Check, and return coordinates accordingly.
+	 *
+	 * @param $location
 	 *
 	 * @return string
 	 */
@@ -39,57 +42,37 @@ class CoordinatesService extends Database
 	 */
 	private function getCoords_toGlifada()
 	{
-//load and connect to MySQL database stuff
-		require("db_connect.php");
-
-//gets bus's coordinates
 		$query = "SELECT * FROM Coordinates WHERE routeID = 3 ORDER BY theTime DESC LIMIT 1;";
 
 		try
 		{
 			$stmt = $this->getDbConnection()->prepare($query);
+
 			$result = $stmt->execute();
+
 		} catch (PDOException $ex)
 		{
-			// For testing, you could use a die and message.
-			//die("Failed to run query: " . $ex->getMessage());
+			// https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.4
+			$response["error"] = 503;
 
-			//or just use this use this one to product JSON data:
-			$response["success"] = 0;
-			$response["message"] = "Database Error1. Please Try Again!";
-			echo json_encode($response);
-
-		}
-
-//fetching all the rows from the query
-		$row = $stmt->fetch();
-		if ( ! empty($row))
-		{
-			$response["success"] = 1;
-			$response["message"] = [];
-
-			$therequest = [];
-			$therequest["ID"] = $row["ID"];
-			$therequest["routeID"] = $row["routeID"];
-			$therequest["theDate"] = $row["theDate"];
-			$therequest["theTime"] = $row["theTime"];
-			$therequest["lat"] = $row["lat"];
-			$therequest["lng"] = $row["lng"];
-
-			//update our repsonse JSON data
-			array_push($response["message"], $therequest);
+			$response["message"] = "Service Unavailable";
 
 			return $response;
-
-		} else
-		{
-			// no coords found
-			$response["success"] = 0;
-			$response["message"] = "No coords found";
-
-			// echo no coords JSON
-			return json_encode($response);
 		}
+
+		//fetching all the rows from the query
+		$row = $stmt->fetch();
+
+		$response["success"] = 200;
+
+		if (empty($row))
+		{
+			$response["message"] = "No coordinates found.";
+
+			return $response;
+		}
+
+		return $row;
 	}
 
 	/**
@@ -97,15 +80,12 @@ class CoordinatesService extends Database
 	 */
 	private function getCoords_toKifisia()
 	{
-//load and connect to MySQL database stuff
-		require("db_connect.php");
-
 //gets bus's coordinates
 		$query = "SELECT * FROM Coordinates WHERE routeID = 6 ORDER BY theTime DESC LIMIT 1;";
 
 		try
 		{
-			$stmt = $db->prepare($query);
+			$stmt = $this->getDbConnection()->prepare($query);
 			$result = $stmt->execute();
 		} catch (PDOException $ex)
 		{

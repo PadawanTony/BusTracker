@@ -33,13 +33,16 @@ $dotenv->load();
 $dotenv->required('BASE_DIR');
 
 $baseUrl = getenv('BASE_DIR');
-$requestUri = $_SERVER['REQUEST_URI'];
 
-$mux->get("$baseUrl", ['HubIT\Controllers\WelcomeController', 'index']);
-$mux->get("{$baseUrl}contact", ['HubIT\Controllers\WelcomeController', 'index']);
-$mux->get("{$baseUrl}/getCoordinates", ['HubIT\Controllers\WelcomeController', 'getCoordinates']);
+$mux->get("$baseUrl", 'HubIT\Controllers\WelcomeController:index');
+$mux->get("{$baseUrl}404", 'HubIT\Controllers\WelcomeController:error404');
 
-$route = $mux->dispatch($requestUri);
+$mux->post("{$baseUrl}api/v1/coordinates",
+	'HubIT\Controllers\Api\CoordinatesController:getCoordinates');
+
+$route = $mux->dispatch($_SERVER['REQUEST_URI']);
+
+if ($route === null) $route = $mux->dispatch('/404');
 
 echo Executor::execute($route);
 

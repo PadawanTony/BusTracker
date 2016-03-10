@@ -5,7 +5,7 @@ use PDOException;
 
 class Database
 {
-	public function getConnection()
+	public function getDbConnection()
 	{
 		$host = getenv('DB_HOST');
 		$dbname = getenv('DB_DATABASE');
