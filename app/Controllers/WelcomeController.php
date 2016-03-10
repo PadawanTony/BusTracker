@@ -2,45 +2,82 @@
 
 use HubIT\Repositories\QuoteRepositories\StaticQuoteRepository;
 use HubIT\Repositories\UserRepositories\StaticUserRepository;
+use HubIT\Requests\PostCoordinatesRequest;
+use HubIT\Services\CoordinatesService;
+use HubIT\Transformers\ApiCoordinatesTransformer;
 
 /**
- * @author Rizart Dokollari
- * @since 6/14/2015
+ * @author Rizart Dokollari <r.dokollari@gmail.com>
+ * @author Antony Kalogeropoulos <anthonykalogeropoulos@gmail.com>
+ *
+ * @since  6/14/2015
  */
 class WelcomeController extends Controller
 {
-    private $userRepository;
-    private $quotesRepository;
+	/**
+	 * @var StaticUserRepository
+	 */
+	private $userRepository;
+	/**
+	 * @var StaticQuoteRepository
+	 */
+	private $quotesRepository;
+	/**
+	 * @var CoordinatesService
+	 */
+	private $coordinatesService;
+	/**
+	 * @var PostCoordinatesRequest
+	 */
+	private $postCoordinatesRequest;
+	/**
+	 * @var ApiCoordinatesTransformer
+	 */
+	private $apiCoordinatesTransformer;
 
-    public function __construct()
-    {
-        parent::__construct();
+	/**
+	 * WelcomeController constructor.
+	 */
+	public function __construct()
+	{
+		parent::__construct();
 
+		$this->userRepository = new StaticUserRepository();
+		$this->quotesRepository = new StaticQuoteRepository();
+		$this->coordinatesService = new CoordinatesService();
+		$this->postCoordinatesRequest = new PostCoordinatesRequest();
+		$this->apiCoordinatesTransformer = new ApiCoordinatesTransformer();
+	}
 
-        $this->userRepository = new StaticUserRepository();
-        $this->quotesRepository = new StaticQuoteRepository();
-    }
+	/**
+	 * Show all users
+	 */
+	public function index()
+	{
+		$title = 'Bus Tracker';
 
-    /**
-     * Show all users
-     */
-    public function index()
-    {
-        include __DIR__ . '/../../webServices/getCoordsWeb.php';
+		$users = $this->userRepository->getAll();
 
-	    $route = $_POST['action'];
+		shuffle($users);
 
-	    if ($route == 'to_glifada') $latlng = getCoords_toGlifada();
-	    else $latlng = getCoords_toKifisia();
+		$randomQuote = $this->quotesRepository->getRandom();
 
-        $title = 'Bus Tracker';
+		return $this->views->render('welcome', compact('users', 'title', 'randomQuote', 'latlng'));
+	}
 
-        $users = $this->userRepository->getAll();
+	/**
+	 * Async return coordinate resulsts.
+	 *
+	 * @return string
+	 */
+	public function getCoordinates()
+	{
+		$this->postCoordinatesRequest->validate();
 
-        shuffle($users);
+		$location = $this->postCoordinatesRequest->getLocation();
 
-        $randomQuote = $this->quotesRepository->getRandom();
+		$coordinates = $this->coordinatesService->getCoordinates($location);
 
-        return $this->views->render('welcome', compact('users', 'title', 'randomQuote', 'latlng'));
-    }
+		return $this->apiCoordinatesTransformer->transform($coordinates);
+	}
 }

@@ -13,6 +13,7 @@
 use Pux\Executor;
 
 require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/../app/setup.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -35,15 +36,10 @@ $baseUrl = getenv('BASE_DIR');
 $requestUri = $_SERVER['REQUEST_URI'];
 
 $mux->get("$baseUrl", ['HubIT\Controllers\WelcomeController', 'index']);
-$mux->get("{$baseUrl}index.php", ['HubIT\Controllers\WelcomeController', 'index']);
-$mux->post("{$baseUrl}index.php", ['HubIT\Controllers\WelcomeController', 'index']);
-//$mux->post("$baseUrl", ['HubIT\Controllers\WelcomeController', 'index']);
 $mux->get("{$baseUrl}contact", ['HubIT\Controllers\WelcomeController', 'index']);
-//$mux->get("{$baseUrl}about", ['HubIT\Controllers\WelcomeController', 'about']);
+$mux->get("{$baseUrl}/getCoordinates", ['HubIT\Controllers\WelcomeController', 'getCoordinates']);
 
 $route = $mux->dispatch($requestUri);
 
 echo Executor::execute($route);
-
-
 
