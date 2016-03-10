@@ -1,5 +1,6 @@
 <?php namespace HubIT\Controllers;
 
+use HubIT\App;
 use HubIT\Repositories\QuoteRepositories\StaticQuoteRepository;
 use HubIT\Repositories\UserRepositories\StaticUserRepository;
 
@@ -38,13 +39,11 @@ class WelcomeController extends Controller
 	{
 		$title = 'Bus Tracker';
 
-		$users = $this->userRepository->getAll();
-
-		shuffle($users);
-
 		$randomQuote = $this->quotesRepository->getRandom();
 
-		return $this->views->render('welcome', compact('users', 'title', 'randomQuote', 'latlng'));
+		$coordinatesUrl = App::getUrl('api/v1/coordinates');
+
+		return $this->views->render('welcome', compact('users', 'title', 'randomQuote', 'coordinatesUrl'));
 	}
 
 
