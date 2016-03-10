@@ -7,10 +7,31 @@
 namespace HubIT\Controllers\Api;
 
 
+/**
+ * Class ApiController
+ *
+ * @package HubIT\Controllers\Api
+ */
 class ApiController
 {
 	/**
+	 * @var int
+	 */
+	protected $statusCode = 200;
+
+	/**
+	 * @param string $message
+	 *
+	 * @return mixed
+	 */
+	public function respondUnprocessableEntity($message = 'Parameters validation failed.')
+	{
+		return $this->setStatusCode(422)->respondWithError($message);
+	}
+
+	/**
 	 * @param $message
+	 *
 	 * @return mixed
 	 */
 	public function respondWithError($message)
@@ -24,16 +45,13 @@ class ApiController
 	}
 
 	/**
-	 * @param $data
-	 * @param array $headers
+	 * @param array $data
+	 *
 	 * @return mixed
 	 */
-	public function respond($data, $headers = [])
+	private function respond(array $data)
 	{
-		$response["status_code"] = $this->gets;
-
-		$response["message"] = "Location not found";
-		return Response::json($data, $this->getStatusCode(), $headers);
+		exit(json_encode($data));
 	}
 
 	/**
@@ -46,6 +64,7 @@ class ApiController
 
 	/**
 	 * @param mixed $statusCode
+	 *
 	 * @return $this
 	 */
 	public function setStatusCode($statusCode)
@@ -55,5 +74,20 @@ class ApiController
 		return $this;
 	}
 
+	/**
+	 * @param $data
+	 *
+	 * @return mixed
+	 *
+	 */
+	public function respondWithSuccess($data)
+	{
+		return $this->respond([
+			'status_code' => $this->getStatusCode(),
+			'data'        => $data,
+		]);
+	}
+
 
 }
+

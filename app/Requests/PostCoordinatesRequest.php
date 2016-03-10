@@ -6,15 +6,15 @@
  * @author Rizart Dokollari <r.dokollari@gmail.com>
  * @since  10/03/16
  */
+use HubIT\Controllers\Api\ApiController;
 use HubIT\Services\CoordinatesService;
-use Pux\Mux;
 
 /**
  * Class PostCoordinatesRequest
  *
  * @package HubIT\Requests
  */
-class PostCoordinatesRequest extends Mux implements Request
+class PostCoordinatesRequest extends ApiController
 {
 	const LOCATION = 'location';
 	/**
@@ -26,32 +26,24 @@ class PostCoordinatesRequest extends Mux implements Request
 
 	/**
 	 * Validate data of current request.
-	 *
 	 */
 	public function validate()
 	{
 		if ( ! isset($_POST[ self::LOCATION ]))
 		{
-			$response["error"] = 403;
-
-			$response["message"] = "Missing parameter: 'location'";
-
-			exit(json_encode($response));
+			return $this->respondUnprocessableEntity("Missing parameter: 'location'");
 		}
 
 		if ( ! in_array($_POST[ self::LOCATION ], $this->allowedLocations, true))
 		{
-			$response["error"] = 403;
-
-			$response["message"] = "Location not found";
-
-			exit(json_encode($response));
+			return $this->respondUnprocessableEntity("Location not found");
 		}
 
+		return true;
 	}
 
 	public function getLocation()
 	{
-		return $_POST[self::LOCATION];
+		return $_POST[ self::LOCATION ];
 	}
 }
