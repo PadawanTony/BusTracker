@@ -342,15 +342,13 @@
 								<span class="caret"></span>
 							</button>
 							<ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-								<li><a><input type="submit" class="MapRoutes" name="parentGlifadaMap"
-								              value="to_glifada"/> </a></li>
-								<li><a><input type="submit" class="MapRoutes" name="parentNomMap"
-								              value="to_glifada"/></a></li>
-								<li><a><input type="submit" class="MapRoutes" name="parentKifissiaMap"
-								              value="to_kifisia"/></a></li>
-								<!--					            <li class="parentNomMap"><a> Nomismatokopeio </a></li>-->
-								<!--					            <li class="parentKifissiaMap"><a> Kifissia</a></li>-->
-								<!--					            <li role="separator" class="divider"></li>-->
+								<li><a><input type="submit" class="MapRoutes" value="to_Glifada"/> </a></li>
+								<li><a><input type="submit" class="MapRoutes" value="to_Nom"/> </a></li>
+								<li><a><input type="submit" class="MapRoutes" value="to_Kifisia"/> </a></li>
+								<li><a><input type="submit" class="MapRoutes" value="from_Glifada"/> </a></li>
+								<li><a><input type="submit" class="MapRoutes" value="from_Nom"/> </a></li>
+								<li><a><input type="submit" class="MapRoutes" value="from_Kifisia"/> </a></li>
+
 							</ul>
 						</div>
 					</small>
@@ -539,6 +537,7 @@
 			var mapContainer = document.getElementById("googleMap");
 
 			var coordinates = JSON.parse(results).data;
+			/** Debugging **/
 			console.log(coordinates);
 			console.log(coordinates.ID);
 			console.log(coordinates.lat);

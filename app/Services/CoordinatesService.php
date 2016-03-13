@@ -9,14 +9,12 @@ use HubIT\Database;
  */
 class CoordinatesService extends Database
 {
-	/**
-	 *
-	 */
-	const TO_GLIFADA = 'to_glifada';
-	/**
-	 *
-	 */
-	const TO_KIFISIA = 'to_kifisia';
+	const TO_GLIFADA = 'to_Glifada';
+	const TO_KIFISIA = 'to_Kifisia';
+	const TO_NOM = 'to_Nom';
+	const FROM_GLIFADA = 'from_Glifada';
+	const FROM_KIFISIA = 'from_Kifisia';
+	const FROM_NOM = 'from_Nom';
 
 	/**
 	 * Check, and return coordinates accordingly.
@@ -32,11 +30,27 @@ class CoordinatesService extends Database
 		switch ($location)
 		{
 			case self::TO_GLIFADA:
-				$routeId = 3; // Glifada
+				$routeId = 4;
 				$response = $this->fetchCoordinates($routeId);
 				break;
 			case self::TO_KIFISIA:
-				$routeId = 6; // Kifisa
+				$routeId = 2;
+				$response = $this->fetchCoordinates($routeId);
+				break;
+			case self::TO_NOM:
+				$routeId = 6;
+				$response = $this->fetchCoordinates($routeId);
+				break;
+			case self::FROM_GLIFADA:
+				$routeId = 3;
+				$response = $this->fetchCoordinates($routeId);
+				break;
+			case self::FROM_KIFISIA:
+				$routeId = 1;
+				$response = $this->fetchCoordinates($routeId);
+				break;
+			case self::FROM_NOM:
+				$routeId = 5;
 				$response = $this->fetchCoordinates($routeId);
 				break;
 		}
