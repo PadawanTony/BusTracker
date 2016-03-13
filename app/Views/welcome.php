@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 
 <head>
 	<meta charset="utf-8">
@@ -94,8 +94,8 @@
 
 		<h1 class="bg-danger text-center"> Schedule |
 			<small>
-				<div class="dropdown">
-					<button class="btn bg-danger dropdown-toggle" type="button" id="dropdownMenu1"
+				<div class="dropdown" id="dropdownMenu1">
+					<button class="btn bg-danger dropdown-toggle" type="button"
 					        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 						<i class="fa fa-bus"></i>
 						<strong> &nbsp; &nbsp; Select Route </strong>
@@ -342,12 +342,12 @@
 								<span class="caret"></span>
 							</button>
 							<ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-								<li><a><input type="submit" class="MapRoutes" value="to_Glifada"/> </a></li>
-								<li><a><input type="submit" class="MapRoutes" value="to_Nom"/> </a></li>
-								<li><a><input type="submit" class="MapRoutes" value="to_Kifisia"/> </a></li>
-								<li><a><input type="submit" class="MapRoutes" value="from_Glifada"/> </a></li>
-								<li><a><input type="submit" class="MapRoutes" value="from_Nom"/> </a></li>
-								<li><a><input type="submit" class="MapRoutes" value="from_Kifisia"/> </a></li>
+								<li><a><button type="submit" class="MapRoutes" value="to_Glifada">To Glifada </button></a></li>
+								<li><a><button type="submit" class="MapRoutes" value="from_Glifada">From Glifada</button> </a></li>
+								<li><a><button type="submit" class="MapRoutes" value="to_Nom">To Nomismatokopeio</button> </a></li>
+								<li><a><button type="submit" class="MapRoutes" value="from_Nom"> From Nomismatokopeio</button></a></li>
+								<li><a><button type="submit" class="MapRoutes" value="to_Kifisia">To Kifisia</button> </a></li>
+								<li><a><button type="submit" class="MapRoutes" value="from_Kifisia">From Kifisia</button> </a></li>
 
 							</ul>
 						</div>

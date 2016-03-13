@@ -182,6 +182,11 @@ hr.small {
     cursor: pointer;
 }
 
+#dropdownMenu1 a:hover {
+    margin: 0;
+    background-color: #f2dede;
+}
+
 .table-bordered {
     border-collapse: separate;
     border: 1px solid #000;
@@ -197,6 +202,31 @@ hr.small {
 
 #dropdownForMap {
     color: #0f0f0f;
+}
+
+#dropdownForMap li {
+}
+
+#dropdownForMap a {
+    margin: 0;
+    padding: 3px 0;
+
+}
+
+#dropdownForMap a:hover {
+    margin: 0;
+    background-color: #f2dede;
+}
+
+#dropdownForMap li button {
+    background-color: transparent;
+    border: none;
+    text-align: left;
+    width: 100%;
+}
+
+#dropdownForMap li:active {
+    background-color: sandybrown;
 }
 /* End Call to Action */
 
