@@ -527,11 +527,12 @@
 //
 //		google.maps.event.addDomListener(window, 'load', getLocation());
 
-	$(document).ready(function () {
+	$('.MapRoutes').click(function(){
+		var clickBtnValue = $(this).val();
 		var request = $.ajax({
 			url: "<?= $this->e($coordinatesUrl) ?>",
 			type: "POST",
-			data: {location: 'to_glifada'}
+			data: {location: clickBtnValue}
 		});
 
 		request.done(function (results) {
