@@ -538,13 +538,13 @@
 		request.done(function (results) {
 			var mapContainer = document.getElementById("googleMap");
 
-			var results = JSON.parse(results);
-			console.log(results.data);
-			console.log(results.data.ID);
-			console.log(results.data.lat);
+			var coordinates = JSON.parse(results).data;
+			console.log(coordinates);
+			console.log(coordinates.ID);
+			console.log(coordinates.lat);
 
-			var lat = results.data.lat;
-			var lng = results.data.lng;
+			var lat = coordinates.lat;
+			var lng = coordinates.lng;
 			var myLatLong = new google.maps.LatLng(lat, lng);
 
 			var mapOptions = {
