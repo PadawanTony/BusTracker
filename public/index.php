@@ -38,7 +38,7 @@ $mux->get("$baseUrl", 'HubIT\Controllers\WelcomeController:index');
 $mux->get("{$baseUrl}404", 'HubIT\Controllers\WelcomeController:error404');
 
 $mux->post("{$baseUrl}api/v1/coordinates",
-	'HubIT\Controllers\Api\CoordinatesController:getCoordinates');
+	'HubIT\Controllers\Api\ApiCoordinatesController:getCoordinates');
 
 $route = $mux->dispatch($_SERVER['REQUEST_URI']);
 

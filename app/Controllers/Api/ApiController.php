@@ -88,6 +88,14 @@ class ApiController
 		]);
 	}
 
+	/**
+	 * @param string $message
+	 * @return mixed
+	 */
+	public function respondInternalServerError($message = 'Internal Server Error.')
+	{
+		return $this->setStatusCode(500)->respondWithError($message);
+	}
 
 }
 

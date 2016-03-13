@@ -8,7 +8,7 @@ use HubIT\Transformers\ApiCoordinatesTransformer;
  * @author Rizart Dokollari <r.dokollari@gmail.com>
  * @since  10/03/16
  */
-class CoordinatesController extends ApiController
+class ApiCoordinatesController extends ApiController
 {
 	/**
 	 * @var PostCoordinatesRequest
@@ -45,6 +45,8 @@ class CoordinatesController extends ApiController
 		$location = $this->postCoordinatesRequest->getLocation();
 
 		$coordinates = $this->coordinatesService->getCoordinates($location);
+
+		if ( ! $coordinates ) return $this->respondInternalServerError();
 
 		return $this->respondWithSuccess(
 			$this->apiCoordinatesTransformer->transform($coordinates)

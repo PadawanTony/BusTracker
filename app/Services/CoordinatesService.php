@@ -1,7 +1,6 @@
 <?php namespace HubIT\Services;
 
 use HubIT\Database;
-use PDOException;
 
 /**
  * Class CoordinatesService
@@ -46,6 +45,8 @@ class CoordinatesService extends Database
 	}
 
 	/**
+	 * Data has been validated.
+	 *
 	 * @param $routeId
 	 *
 	 * @return string
@@ -54,30 +55,11 @@ class CoordinatesService extends Database
 	{
 		$query = "SELECT * FROM Coordinates WHERE routeID = {$routeId} ORDER BY theTime DESC LIMIT 1;";
 
-		try
-		{
-			$stmt = $this->getDbConnection()->prepare($query);
+		$stmt = $this->getDbConnection()->prepare($query);
 
-			$stmt->execute();
-
-		} catch (PDOException $ex)
-		{
-			// https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.4
-			$response["error"] = 503;
-
-			$response["message"] = "Service Unavailable";
-
-			return $response;
-		}
+		if ( ! $stmt->execute()) return false;
 
 		$row = $stmt->fetch();
-
-		if (empty($row))
-		{
-			$response["message"] = "No coordinates found.";
-
-			return $response;
-		}
 
 		return $row;
 	}
