@@ -13,6 +13,7 @@
 use Pux\Executor;
 
 require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/../app/setup.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -32,18 +33,16 @@ $dotenv->load();
 $dotenv->required('BASE_DIR');
 
 $baseUrl = getenv('BASE_DIR');
-$requestUri = $_SERVER['REQUEST_URI'];
 
-$mux->get("$baseUrl", ['HubIT\Controllers\WelcomeController', 'index']);
-$mux->get("{$baseUrl}index.php", ['HubIT\Controllers\WelcomeController', 'index']);
-$mux->post("{$baseUrl}index.php", ['HubIT\Controllers\WelcomeController', 'index']);
-//$mux->post("$baseUrl", ['HubIT\Controllers\WelcomeController', 'index']);
-$mux->get("{$baseUrl}contact", ['HubIT\Controllers\WelcomeController', 'index']);
-//$mux->get("{$baseUrl}about", ['HubIT\Controllers\WelcomeController', 'about']);
+$mux->get("$baseUrl", 'HubIT\Controllers\WelcomeController:index');
+$mux->get("{$baseUrl}404", 'HubIT\Controllers\WelcomeController:error404');
 
-$route = $mux->dispatch($requestUri);
+$mux->post("{$baseUrl}api/v1/coordinates",
+	'HubIT\Controllers\Api\CoordinatesController:getCoordinates');
+
+$route = $mux->dispatch($_SERVER['REQUEST_URI']);
+
+if ($route === null) $route = $mux->dispatch('/404');
 
 echo Executor::execute($route);
-
-
 

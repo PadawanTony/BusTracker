@@ -1,46 +1,54 @@
 <?php namespace HubIT\Controllers;
 
+use HubIT\App;
 use HubIT\Repositories\QuoteRepositories\StaticQuoteRepository;
 use HubIT\Repositories\UserRepositories\StaticUserRepository;
 
 /**
- * @author Rizart Dokollari
- * @since 6/14/2015
+ * @author Rizart Dokollari <r.dokollari@gmail.com>
+ * @author Antony Kalogeropoulos <anthonykalogeropoulos@gmail.com>
+ *
+ * @since  6/14/2015
  */
 class WelcomeController extends Controller
 {
-    private $userRepository;
-    private $quotesRepository;
+	/**
+	 * @var StaticUserRepository
+	 */
+	private $userRepository;
+	/**
+	 * @var StaticQuoteRepository
+	 */
+	private $quotesRepository;
 
-    public function __construct()
-    {
-        parent::__construct();
+	/**
+	 * WelcomeController constructor.
+	 */
+	public function __construct()
+	{
+		parent::__construct();
+
+		$this->userRepository = new StaticUserRepository();
+		$this->quotesRepository = new StaticQuoteRepository();
+	}
+
+	/**
+	 * Show all users
+	 */
+	public function index()
+	{
+		$title = 'Bus Tracker';
+
+		$randomQuote = $this->quotesRepository->getRandom();
+
+		$coordinatesUrl = App::getUrl('api/v1/coordinates');
+
+		return $this->views->render('welcome', compact('users', 'title', 'randomQuote', 'coordinatesUrl'));
+	}
 
 
-        $this->userRepository = new StaticUserRepository();
-        $this->quotesRepository = new StaticQuoteRepository();
-    }
-
-    /**
-     * Show all users
-     */
-    public function index()
-    {
-        include __DIR__ . '/../../webServices/getCoordsWeb.php';
-
-	    $route = $_POST['action'];
-
-	    if ($route == 'to_glifada') $latlng = getCoords_toGlifada();
-	    else $latlng = getCoords_toKifisia();
-
-        $title = 'Bus Tracker';
-
-        $users = $this->userRepository->getAll();
-
-        shuffle($users);
-
-        $randomQuote = $this->quotesRepository->getRandom();
-
-        return $this->views->render('welcome', compact('users', 'title', 'randomQuote', 'latlng'));
-    }
+	public function error404()
+	{
+		return '404';
+	}
 }
