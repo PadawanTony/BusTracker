@@ -10,7 +10,13 @@ use PDOException;
  */
 class CoordinatesService extends Database
 {
+	/**
+	 *
+	 */
 	const TO_GLIFADA = 'to_glifada';
+	/**
+	 *
+	 */
 	const TO_KIFISIA = 'to_kifisia';
 
 	/**
@@ -27,10 +33,12 @@ class CoordinatesService extends Database
 		switch ($location)
 		{
 			case self::TO_GLIFADA:
-				$response = $this->getCoords_toGlifada();
+				$routeId = 3; // Glifada
+				$response = $this->fetchCoordinates($routeId);
 				break;
 			case self::TO_KIFISIA:
-				$response = $this->getCoords_toKifisia();
+				$routeId = 6; // Kifisa
+				$response = $this->fetchCoordinates($routeId);
 				break;
 		}
 
@@ -38,17 +46,19 @@ class CoordinatesService extends Database
 	}
 
 	/**
+	 * @param $routeId
+	 *
 	 * @return string
 	 */
-	private function getCoords_toGlifada()
+	private function fetchCoordinates($routeId)
 	{
-		$query = "SELECT * FROM Coordinates WHERE routeID = 3 ORDER BY theTime DESC LIMIT 1;";
+		$query = "SELECT * FROM Coordinates WHERE routeID = {$routeId} ORDER BY theTime DESC LIMIT 1;";
 
 		try
 		{
 			$stmt = $this->getDbConnection()->prepare($query);
 
-			$result = $stmt->execute();
+			$stmt->execute();
 
 		} catch (PDOException $ex)
 		{
@@ -60,10 +70,7 @@ class CoordinatesService extends Database
 			return $response;
 		}
 
-		//fetching all the rows from the query
 		$row = $stmt->fetch();
-
-		$response["success"] = 200;
 
 		if (empty($row))
 		{
@@ -73,60 +80,5 @@ class CoordinatesService extends Database
 		}
 
 		return $row;
-	}
-
-	/**
-	 * @return string
-	 */
-	private function getCoords_toKifisia()
-	{
-//gets bus's coordinates
-		$query = "SELECT * FROM Coordinates WHERE routeID = 6 ORDER BY theTime DESC LIMIT 1;";
-
-		try
-		{
-			$stmt = $this->getDbConnection()->prepare($query);
-			$result = $stmt->execute();
-		} catch (PDOException $ex)
-		{
-			// For testing, you could use a die and message.
-			//die("Failed to run query: " . $ex->getMessage());
-
-			//or just use this use this one to product JSON data:
-			$response["success"] = 0;
-			$response["message"] = "Database Error1. Please Try Again!";
-			echo json_encode($response);
-
-		}
-
-//fetching all the rows from the query
-		$row = $stmt->fetch();
-		if ( ! empty($row))
-		{
-			$response["success"] = 1;
-			$response["message"] = [];
-
-			$therequest = [];
-			$therequest["ID"] = $row["ID"];
-			$therequest["routeID"] = $row["routeID"];
-			$therequest["theDate"] = $row["theDate"];
-			$therequest["theTime"] = $row["theTime"];
-			$therequest["lat"] = $row["lat"];
-			$therequest["lng"] = $row["lng"];
-
-			//update our repsonse JSON data
-			array_push($response["message"], $therequest);
-
-			return $response;
-
-		} else
-		{
-			// no coords found
-			$response["success"] = 0;
-			$response["message"] = "No coords found";
-
-			// echo no coords JSON
-			return json_encode($response);
-		}
 	}
 }
