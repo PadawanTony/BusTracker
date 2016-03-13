@@ -476,68 +476,99 @@
 </script>
 
 <script>
-	//	var mapContainer = document.getElementById("googleMap");
-	//	function getLocation() {
-	//		if (navigator.geolocation) {
-	////			navigator.geolocation.getCurrentPosition(showMap);  //Get position once
-	//			navigator.geolocation.watchPosition(showMap);  //Get position continuously
-	//
-	//		} else {
-	//			mapContainer.innerHTML = "Geolocation is not supported by this browser.";
-	//		}
-	//	}
+//		var mapContainer = document.getElementById("googleMap");
+//		function getLocation() {
+//			if (navigator.geolocation) {
+//	//			navigator.geolocation.getCurrentPosition(showMap);  //Get position once
+//				navigator.geolocation.watchPosition(showMap);  //Get position continuously
+//
+//			} else {
+//				mapContainer.innerHTML = "Geolocation is not supported by this browser.";
+//			}
+//		}
 
 	/*
-	 //This function returns the position
+	 This function returns the position
 	 function showPosition(position) {
 	 mapContainer.innerHTML = "Latitude: " + position.coords.latitude +
 	 "<br>Longitude: " + position.coords.longitude;
 	 }
 	 */
 
-	//	function showMap(position) {
-	//		var lat = <?php //echo $latlng['message'][0]['lat']; ?>//;
-	//		var lng = <?php //echo $latlng['message'][0]['lng']; ?>//;
-	//		var myLatLong = new google.maps.LatLng(lat, lng);
-	//
-	//		var mapOptions = {
-	//			center: myLatLong,
-	//			zoom:16,
-	//			scrollwheel: false,
-	//			navigationControl: true,
-	//			mapTypeControl: true,
-	//			scaleControl: true,
-	//			draggable: false,
-	//			mapTypeId:google.maps.MapTypeId.ROADMAP
-	//		};
-	//		map = new google.maps.Map(mapContainer, mapOptions);
-	//
-	//		function setMarker() {
-	//			marker = new google.maps.Marker({
-	//				position: myLatLong,
-	//				map: map,
-	//				title: 'You are here!',
-	//				icon: 'img/busIcon3.png'
-	//			});
-	//		}
-	//
-	//		setMarker();
-	//
-	//	}
+//		function showMap(position) {
+////			var lat = <?php ////echo $latlng['message'][0]['lat']; ?>////;
+////			var lng = <?php ////echo $latlng['message'][0]['lng']; ?>////;
+////			var myLatLong = new google.maps.LatLng(lat, lng);
+//
+//			var mapOptions = {
+//				center: myLatLong,
+//				zoom:16,
+//				scrollwheel: false,
+//				navigationControl: true,
+//				mapTypeControl: true,
+//				scaleControl: true,
+//				draggable: false,
+//				mapTypeId:google.maps.MapTypeId.ROADMAP
+//			};
+//			map = new google.maps.Map(mapContainer, mapOptions);
+//
+//			function setMarker() {
+//				marker = new google.maps.Marker({
+//					position: myLatLong,
+//					map: map,
+//					title: 'You are here!',
+//					icon: 'img/busIcon3.png'
+//				});
+//			}
+//
+//			setMarker();
+//
+//		}
+//
+//		google.maps.event.addDomListener(window, 'load', getLocation());
 
-	//	google.maps.event.addDomListener(window, 'load', getLocation());
-
-	$(document).ready(function () {
+	$('.MapRoutes').click(function(){
+		var clickBtnValue = $(this).val();
 		var request = $.ajax({
 			url: "<?= $this->e($coordinatesUrl) ?>",
 			type: "POST",
-			data: {location: 'to_glifada'}
+			data: {location: clickBtnValue}
 		});
 
 		request.done(function (results) {
+			var mapContainer = document.getElementById("googleMap");
+
 			var results = JSON.parse(results);
 			console.log(results.data);
 			console.log(results.data.ID);
+			console.log(results.data.lat);
+
+			var lat = results.data.lat;
+			var lng = results.data.lng;
+			var myLatLong = new google.maps.LatLng(lat, lng);
+
+			var mapOptions = {
+				center: myLatLong,
+				zoom:16,
+				scrollwheel: false,
+				navigationControl: true,
+				mapTypeControl: true,
+				scaleControl: true,
+				draggable: false,
+				mapTypeId:google.maps.MapTypeId.ROADMAP
+			};
+			map = new google.maps.Map(mapContainer, mapOptions);
+
+			function setMarker() {
+				marker = new google.maps.Marker({
+					position: myLatLong,
+					map: map,
+					title: 'You are here!',
+					icon: 'img/busIcon3.png'
+				});
+			}
+
+			setMarker();
 		});
 
 //		$('.MapRoutes').click(function(){
