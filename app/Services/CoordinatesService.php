@@ -29,7 +29,7 @@ class CoordinatesService extends Database
 		switch ($location)
 		{
 			case self::GLIFADA:
-				if ($curTime > '14:00:00') {
+				if ($curTime >= '14:00:00') {
 					$routeId = 4; // to_Glifada
 				} else {
 					$routeId = 3; // from_Glifada
@@ -37,7 +37,8 @@ class CoordinatesService extends Database
 				$response = $this->fetchCoordinates($routeId);
 				break;
 			case self::KIFISIA:
-				if ($curTime > '14:00:00') {
+				//($curTime >= '14:00:00') ? $routeId = 2 : $routeId = 2; //Ternary if statement
+				if ($curTime >= '14:00:00') {
 					$routeId = 2; // to_Kifisia
 				} else {
 					$routeId = 1; // from_Kifisia
@@ -45,7 +46,7 @@ class CoordinatesService extends Database
 				$response = $this->fetchCoordinates($routeId);
 				break;
 			case self::NOM:
-				if ($curTime > '14:00:00') {
+				if ($curTime >= '14:00:00') {
 					$routeId = 6; // to_Nom
 				} else {
 					$routeId = 5; // from_Nom
