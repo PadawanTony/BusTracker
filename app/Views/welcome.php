@@ -29,7 +29,7 @@
 	<![endif]-->
 
 	<!--Import Google Maps API-->
-	<script src="http://maps.googleapis.com/maps/api/js"></script>
+<!--	<script src="http://maps.googleapis.com/maps/api/js"></script>-->
 </head>
 
 <body>
@@ -610,6 +610,9 @@
 			setMarker();
 		});
 	});
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB19HgdXxADeLSEIURE4xivOI0OXwXpY5U"
+        type="text/javascript">
 </script>
 
 </body>
