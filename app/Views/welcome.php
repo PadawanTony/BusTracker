@@ -72,6 +72,7 @@
 	</div>
 </header>
 
+
 <!-- About -->
 <section id="about" class="about">
 	<div class="container">
@@ -335,10 +336,9 @@
 				<h3>Select Route to View in Map: &nbsp;
 					<small>
 						<div class="dropdown" id="dropdownForMap">
-							<button class="btn bg-danger dropdown-toggle" type="button" id="dropdownMenu2"
-							        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+							<button class="btn bg-danger dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 								<i class="fa fa-map-marker"></i>
-								<strong> &nbsp; &nbsp; Select Route </strong>
+								<strong id="dropdownForMap_Title"> &nbsp; &nbsp; Select Route </strong>
 								<span class="caret"></span>
 							</button>
 							<ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
@@ -484,22 +484,20 @@
 //				mapContainer.innerHTML = "Geolocation is not supported by this browser.";
 //			}
 //		}
-
-	/*
-	 This function returns the position
-	 function showPosition(position) {
-	 mapContainer.innerHTML = "Latitude: " + position.coords.latitude +
-	 "<br>Longitude: " + position.coords.longitude;
-	 }
-	 */
-
-//		function showMap(position) {
-////			var lat = <?php ////echo $latlng['message'][0]['lat']; ?>////;
-////			var lng = <?php ////echo $latlng['message'][0]['lng']; ?>////;
-////			var myLatLong = new google.maps.LatLng(lat, lng);
 //
+//	/*
+//	 This function returns the position
+//	 function showPosition(position) {
+//	 mapContainer.innerHTML = "Latitude: " + position.coords.latitude +
+//	 "<br>Longitude: " + position.coords.longitude;
+//	 }
+//	 */
+//
+//		function showMap(position) {
+//			console.log(position);
+//			var myLatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 //			var mapOptions = {
-//				center: myLatLong,
+//				center: myLatLng,
 //				zoom:16,
 //				scrollwheel: false,
 //				navigationControl: true,
@@ -512,35 +510,79 @@
 //
 //			function setMarker() {
 //				marker = new google.maps.Marker({
-//					position: myLatLong,
+//					position: myLatLng,
 //					map: map,
 //					title: 'You are here!',
-//					icon: 'img/busIcon3.png'
+//					icon: 'img/home-icon.png'
 //				});
 //			}
 //
 //			setMarker();
-//
 //		}
 //
 //		google.maps.event.addDomListener(window, 'load', getLocation());
 
+
+
+	$(document).ready(function(){
+			var request = $.ajax({
+				url: "<?= $this->e($coordinatesUrl) ?>",
+				type: "POST",
+				data: {location: 'to_Glifada'}
+			});
+			request.done(function (results) {
+				var mapContainer = document.getElementById("googleMap");
+				var coordinates = JSON.parse(results).data;
+
+//				/** Debugging **/
+//				console.log(coordinates);
+//				console.log(coordinates.ID);
+//				console.log(coordinates.lat);
+
+				var myLatLong = new google.maps.LatLng(coordinates.lat, coordinates.lng);
+				var mapOptions = {
+					center: myLatLong,
+					zoom:16,
+					scrollwheel: false,
+					navigationControl: true,
+					mapTypeControl: true,
+					scaleControl: true,
+					draggable: false,
+					mapTypeId:google.maps.MapTypeId.ROADMAP
+				};
+				map = new google.maps.Map(mapContainer, mapOptions);
+
+				function setMarker() {
+					marker = new google.maps.Marker({
+						position: myLatLong,
+						map: map,
+						title: 'To Glifada',
+						icon: 'img/busIcon3.png'
+					});
+				}
+				setMarker();
+
+			});
+		});
+
+
 	$('.MapRoutes').click(function(){
 		var clickBtnValue = $(this).val();
+		var clickBtnTitle = $(this).html();
+
 		var request = $.ajax({
 			url: "<?= $this->e($coordinatesUrl) ?>",
 			type: "POST",
 			data: {location: clickBtnValue}
 		});
-
 		request.done(function (results) {
 			var mapContainer = document.getElementById("googleMap");
-
 			var coordinates = JSON.parse(results).data;
-			/** Debugging **/
-			console.log(coordinates);
-			console.log(coordinates.ID);
-			console.log(coordinates.lat);
+
+//			/** Debugging **/
+//			console.log(coordinates);
+//			console.log(coordinates.ID);
+//			console.log(coordinates.lat);
 
 			var lat = coordinates.lat;
 			var lng = coordinates.lng;
@@ -562,34 +604,14 @@
 				marker = new google.maps.Marker({
 					position: myLatLong,
 					map: map,
-					title: 'You are here!',
+					title: clickBtnTitle,
 					icon: 'img/busIcon3.png'
 				});
 			}
 
+			$("#dropdownForMap_Title").html(clickBtnTitle);
 			setMarker();
 		});
-
-//		$('.MapRoutes').click(function(){
-//			var clickBtnValue = $(this).val();
-//			$.ajax({
-//				type: "POST",
-//				url: "index.php",
-//				data: { 'action': clickBtnValue }
-//			}).done(function( msg ) {
-//				var lat = <?php //echo $latlng['message'][0]['lat']; ?>//;
-//				var lng = <?php //echo $latlng['message'][0]['lng']; ?>//;
-//				var myLatLong = new google.maps.LatLng(lat, lng);
-//				marker = new google.maps.Marker({
-//					position: myLatLong,
-//					map: map,
-//					title: 'You are here!',
-//					icon: 'img/busIcon3.png'
-//				});
-////				alert( "Done: " + msg );
-//			});
-//		});
-//
 	});
 </script>
 
