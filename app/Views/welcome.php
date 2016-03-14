@@ -342,12 +342,9 @@
 								<span class="caret"></span>
 							</button>
 							<ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-								<li><a><button type="submit" class="MapRoutes" value="to_Glifada">To Glifada </button></a></li>
-								<li><a><button type="submit" class="MapRoutes" value="from_Glifada">From Glifada</button> </a></li>
-								<li><a><button type="submit" class="MapRoutes" value="to_Nom">To Nomismatokopeio</button> </a></li>
-								<li><a><button type="submit" class="MapRoutes" value="from_Nom"> From Nomismatokopeio</button></a></li>
-								<li><a><button type="submit" class="MapRoutes" value="to_Kifisia">To Kifisia</button> </a></li>
-								<li><a><button type="submit" class="MapRoutes" value="from_Kifisia">From Kifisia</button> </a></li>
+								<li><a><button type="submit" class="MapRoutes" value="Glifada">Glifada</button></a></li>
+								<li><a><button type="submit" class="MapRoutes" value="Kifisia">Kifisia</button></a></li>
+								<li><a><button type="submit" class="MapRoutes" value="Nom">Nomismatokopeio</button></a></li>
 
 							</ul>
 						</div>
@@ -528,7 +525,7 @@
 			var request = $.ajax({
 				url: "<?= $this->e($coordinatesUrl) ?>",
 				type: "POST",
-				data: {location: 'to_Glifada'}
+				data: {location: 'Glifada'}
 			});
 			request.done(function (results) {
 				var mapContainer = document.getElementById("googleMap");

@@ -22,7 +22,7 @@ class PostCoordinatesRequest extends ApiController
 	 *
 	 * @var array
 	 */
-	private $allowedLocations = [CoordinatesService::TO_GLIFADA, CoordinatesService::TO_KIFISIA,CoordinatesService::TO_NOM,CoordinatesService::FROM_GLIFADA,CoordinatesService::FROM_KIFISIA,CoordinatesService::FROM_NOM];
+	private $allowedLocations = [CoordinatesService::GLIFADA, CoordinatesService::KIFISIA,CoordinatesService::NOM];
 
 	/**
 	 * Validate data of current request.

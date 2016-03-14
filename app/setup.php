@@ -3,6 +3,10 @@
  * @author Rizart Dokollari <r.dokollari@gmail.com>
  * @since  10/03/16
  */
+/* Change the Time-Zone */
+ini_set('date.timezone', 'Europe/Athens');
+
+
 // This block of code is used to undo magic quotes.  Magic quotes are a terrible
 // feature that was removed from PHP as of PHP 5.4.  However, older installations
 // of PHP may still have magic quotes enabled and this code is necessary to

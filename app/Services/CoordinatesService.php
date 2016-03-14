@@ -9,12 +9,9 @@ use HubIT\Database;
  */
 class CoordinatesService extends Database
 {
-	const TO_GLIFADA = 'to_Glifada';
-	const TO_KIFISIA = 'to_Kifisia';
-	const TO_NOM = 'to_Nom';
-	const FROM_GLIFADA = 'from_Glifada';
-	const FROM_KIFISIA = 'from_Kifisia';
-	const FROM_NOM = 'from_Nom';
+	const GLIFADA = 'Glifada';
+	const KIFISIA = 'Kifisia';
+	const NOM = 'Nom';
 
 	/**
 	 * Check, and return coordinates accordingly.
@@ -25,32 +22,34 @@ class CoordinatesService extends Database
 	 */
 	public function getCoordinates($location)
 	{
+		$curTime = date('H:i:s', time());
+
 		$response = '';
 
 		switch ($location)
 		{
-			case self::TO_GLIFADA:
-				$routeId = 4;
+			case self::GLIFADA:
+				if ($curTime > '14:00:00') {
+					$routeId = 4; // to_Glifada
+				} else {
+					$routeId = 3; // from_Glifada
+				}
 				$response = $this->fetchCoordinates($routeId);
 				break;
-			case self::TO_KIFISIA:
-				$routeId = 2;
+			case self::KIFISIA:
+				if ($curTime > '14:00:00') {
+					$routeId = 2; // to_Kifisia
+				} else {
+					$routeId = 1; // from_Kifisia
+				}
 				$response = $this->fetchCoordinates($routeId);
 				break;
-			case self::TO_NOM:
-				$routeId = 6;
-				$response = $this->fetchCoordinates($routeId);
-				break;
-			case self::FROM_GLIFADA:
-				$routeId = 3;
-				$response = $this->fetchCoordinates($routeId);
-				break;
-			case self::FROM_KIFISIA:
-				$routeId = 1;
-				$response = $this->fetchCoordinates($routeId);
-				break;
-			case self::FROM_NOM:
-				$routeId = 5;
+			case self::NOM:
+				if ($curTime > '14:00:00') {
+					$routeId = 6; // to_Nom
+				} else {
+					$routeId = 5; // from_Nom
+				}
 				$response = $this->fetchCoordinates($routeId);
 				break;
 		}
