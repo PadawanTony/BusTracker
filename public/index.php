@@ -36,6 +36,7 @@ $baseUrl = getenv('BASE_DIR');
 
 $mux->get("$baseUrl", 'HubIT\Controllers\WelcomeController:index');
 $mux->get("{$baseUrl}404", 'HubIT\Controllers\WelcomeController:error404');
+$mux->get("{$baseUrl}dashboard", 'HubIT\Controllers\WelcomeController:dashboard');
 
 $mux->post("{$baseUrl}api/v1/coordinates",
 	'HubIT\Controllers\Api\ApiCoordinatesController:getCoordinates');

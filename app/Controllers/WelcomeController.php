@@ -51,4 +51,9 @@ class WelcomeController extends Controller
 	{
 		return '404';
 	}
+
+	public function dashboard()
+	{
+		return $this->views->render('admin');
+	}
 }
