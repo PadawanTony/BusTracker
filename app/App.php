@@ -3,9 +3,7 @@
  * @author Rizart Dokollari <r.dokollari@gmail.com>
  * @since  10/03/16
  */
-
 namespace HubIT;
-
 
 /**
  * Class App
@@ -14,15 +12,8 @@ namespace HubIT;
  */
 class App
 {
-
-	private static function getUri()
-	{
-		return $_SERVER['REQUEST_URI'];
-	}
-
-	public static function getUrl($url)
-	{
-		return self::getUri() . $url;
-	}
-
+    public static function url($url = null)
+    {
+        return "http://$_SERVER[HTTP_HOST]".getenv('BASE_DIR').$url;
+    }
 }
