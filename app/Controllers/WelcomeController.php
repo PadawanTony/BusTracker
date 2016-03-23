@@ -49,10 +49,15 @@ class WelcomeController extends Controller
 
 	public function error404()
 	{
-		return '404';
+		return $this->views->render('error404');
 	}
 
 	public function dashboard()
+	{
+		return $this->views->render('admin_start');
+	}
+
+	public function a()
 	{
 		return $this->views->render('admin_start');
 	}
