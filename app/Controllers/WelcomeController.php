@@ -12,53 +12,53 @@ use HubIT\Repositories\UserRepositories\StaticUserRepository;
  */
 class WelcomeController extends Controller
 {
-	/**
-	 * @var StaticUserRepository
-	 */
-	private $userRepository;
-	/**
-	 * @var StaticQuoteRepository
-	 */
-	private $quotesRepository;
+    /**
+     * @var StaticUserRepository
+     */
+    private $userRepository;
+    /**
+     * @var StaticQuoteRepository
+     */
+    private $quotesRepository;
 
-	/**
-	 * WelcomeController constructor.
-	 */
-	public function __construct()
-	{
-		parent::__construct();
+    /**
+     * WelcomeController constructor.
+     */
+    public function __construct()
+    {
+        parent::__construct();
 
-		$this->userRepository = new StaticUserRepository();
-		$this->quotesRepository = new StaticQuoteRepository();
-	}
+        $this->userRepository = new StaticUserRepository();
+        $this->quotesRepository = new StaticQuoteRepository();
+    }
 
-	/**
-	 * Show all users
-	 */
-	public function index()
-	{
-		$title = 'Bus Tracker';
+    /**
+     * Show all users
+     */
+    public function index()
+    {
+        $title = 'Bus Tracker';
 
-		$randomQuote = $this->quotesRepository->getRandom();
+        $randomQuote = $this->quotesRepository->getRandom();
 
-		$coordinatesUrl = App::getUrl('api/v1/coordinates');
+        $coordinatesUrl = App::url('api/v1/coordinates');
 
-		return $this->views->render('welcome', compact('users', 'title', 'randomQuote', 'coordinatesUrl'));
-	}
+        return $this->views->render('welcome', compact('users', 'title', 'randomQuote', 'coordinatesUrl'));
+    }
 
 
-	public function error404()
-	{
-		return $this->views->render('error404');
-	}
+    public function error404()
+    {
+        return $this->views->render('error404');
+    }
 
-	public function dashboard()
-	{
-		return $this->views->render('admin_start');
-	}
+    public function dashboard()
+    {
+        return $this->views->render('admin_start');
+    }
 
-	public function a()
-	{
-		return $this->views->render('admin_start');
-	}
+    public function a()
+    {
+        return $this->views->render('admin_start');
+    }
 }

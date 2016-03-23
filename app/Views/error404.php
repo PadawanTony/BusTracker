@@ -12,7 +12,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<head>
 		<title>404</title>
 		<meta name="keywords" content="404" />
-		<link href="css/style404.css" rel="stylesheet" type="text/css"  media="all" />
+		<link href="<?php echo App::url('css/style404.css') ?>" rel="stylesheet" type="text/css"  media="all" />
 	</head>
 	<body>
 		<!--start-wrap--->
@@ -21,16 +21,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="header">
 					<div class="logo">
 						<h1><a href="#">Ohh</a></h1>
-						<a href="<?php echo 'BusTracker/public/'; ?>">Go Back To Home</a>
+						<a href="<?php echo App::url(); ?>">Go Back To Home</a>
 
 					</div>
 				</div>
 			<!---End-header---->
 			<!--start-content------>
 			<div class="content">
-				<img src="img/error-img.png" title="error" />
+				<img src="<?php echo App::url('img/error-img.png'); ?>" title="error" />
 				<p><span><label>O</label>hh.....</span>You Requested a page that is no longer here.</p>
-				<a href="<?php echo 'BusTracker/public/'; ?>">Go Back To Home</a>
+				<a href="<?php echo App::url(); ?>">Go Back To Home</a>
 				<div class="copy-right">
 					&copy CodeBurrow.com
 				</div>
