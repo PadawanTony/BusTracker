@@ -54,6 +54,6 @@ class WelcomeController extends Controller
 
 	public function dashboard()
 	{
-		return $this->views->render('admin');
+		return $this->views->render('admin_start');
 	}
 }
