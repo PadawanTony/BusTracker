@@ -1,3 +1,7 @@
+<?php
+use HubIT\App;
+?>
+
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 
@@ -14,7 +18,7 @@
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
 
 	<!-- Custom CSS -->
-	<link href="css/stylish-portfolio.css" rel="stylesheet">
+	<link href="<?php echo App::url('css/stylish-portfolio.css'); ?>" rel="stylesheet">
 
 	<!-- Custom Fonts -->
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
@@ -390,14 +394,14 @@
 				<br>
 				<ul class="list-inline">
 					<li>
-						<a href="http://www.acg.edu/"><img src="img/dereeLogo.png" alt="Deree_Logo"></a>
+						<a href="http://www.acg.edu/"><img src="<?php echo App::url('img/dereeLogo.png'); ?>" alt="Deree_Logo"></a>
 					</li>
 					<li>
-						<a href="http://www.acg.edu/"><img src="img/dereeOfficialLogo.jpg" alt="Deree_Official_Logo"
+						<a href="http://www.acg.edu/"><img src="<?php echo App::url('img/dereeOfficialLogo.jpg'); ?>" alt="Deree_Official_Logo"
 						                                   style="width: 55px;"></a>
 					</li>
 					<li>
-						<a href="http://www.pierce.gr/"><img src="img/pierceLogo.JPG" alt="Pierce_Logo"
+						<a href="http://www.pierce.gr/"><img src="<?php echo App::url('img/pierceLogo.JPG'); ?>" alt="Pierce_Logo"
 						                                     style="width: 55px; height: 45px;"></a>
 					</li>
 				</ul>
@@ -554,7 +558,7 @@
 						position: myLatLong,
 						map: map,
 						title: 'To Glifada',
-						icon: 'img/busIcon3.png'
+						icon: "<?php echo App::url('img/busIcon3.png'); ?>"
 					});
 				}
 				setMarker();
@@ -602,7 +606,7 @@
 					position: myLatLong,
 					map: map,
 					title: clickBtnTitle,
-					icon: 'img/busIcon3.png'
+					icon: "<?php echo App::url('img/busIcon3.png'); ?>"
 				});
 			}
 
