@@ -57,8 +57,8 @@ class WelcomeController extends Controller
         return $this->views->render('admin_start');
     }
 
-    public function a()
+    public function createRoute()
     {
-        return $this->views->render('admin_start');
+        return $this->views->render('admin_createRoute');
     }
 }
