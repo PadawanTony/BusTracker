@@ -12,8 +12,8 @@
 */
 use Pux\Executor;
 
-require __DIR__ . '/../vendor/autoload.php';
-require __DIR__ . '/../app/setup.php';
+require __DIR__.'/../vendor/autoload.php';
+require __DIR__.'/../app/setup.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -27,25 +27,27 @@ require __DIR__ . '/../app/setup.php';
 |
 */
 $mux = new \Pux\Mux;
-$dotenv = new Dotenv\Dotenv(__DIR__ . DIRECTORY_SEPARATOR . "..");
 
+// Require Environment Variable
+$dotenv = new Dotenv\Dotenv(__DIR__.DIRECTORY_SEPARATOR."..");
 $dotenv->load();
 $dotenv->required('BASE_DIR');
-
 $baseUrl = getenv('BASE_DIR');
 
+// Users Panel
 $mux->get("$baseUrl", 'HubIT\Controllers\WelcomeController:index');
 $mux->get("{$baseUrl}404", 'HubIT\Controllers\WelcomeController:error404');
-$mux->get("{$baseUrl}dashboard", 'HubIT\Controllers\AdminController:dashboard');
-$mux->get("{$baseUrl}dashboard/createRoute", 'HubIT\Controllers\WelcomeController:createRoute');
-//$mux->get("{$baseUrl}dashboard/routes/create", 'HubIT\Controllers\RoutesController:create');
 
-$mux->post("{$baseUrl}api/v1/coordinates",
-	'HubIT\Controllers\Api\ApiCoordinatesController:getCoordinates');
-$mux->post("{$baseUrl}dashboard/createRoute",
-	'HubIT\Controllers\AdminController:createRoute');
+// Admin Panel
+$mux->get("{$baseUrl}admin/dashboard", 'HubIT\Controllers\Admin\DashboardController:dashboard');
+$mux->get("{$baseUrl}admin/routes/create", 'HubIT\Controllers\Admin\RoutesController:create');
+$mux->post("{$baseUrl}admin/routes/create", 'HubIT\Controllers\Admin\RoutesController:post');
 
-$route = $mux->dispatch($_SERVER['REQUEST_URI']);
+// Api
+$mux->post("{$baseUrl}api/v1/coordinates", 'HubIT\Controllers\Api\ApiCoordinatesController:getCoordinates');
+
+// Dispatch Routes
+$route = $mux->dispatch($_SERVER[ 'REQUEST_URI' ]);
 
 if ($route === null) $route = $mux->dispatch('/404');
 

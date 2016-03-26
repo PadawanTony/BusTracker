@@ -1,4 +1,4 @@
-<?php $this->layout('layouts/admin') ?>
+<?php $this->layout('layouts/master') ?>
 
 			<div class="">
 				<div class="page-title">
