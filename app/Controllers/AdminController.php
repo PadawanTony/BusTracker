@@ -23,20 +23,27 @@ class AdminController extends Controller
 	 */
 	public function createRoute()
 	{
+
+
+
 		$response = $this->createNewRouteService->insertNewRoute($_POST);
 
 		$message = $response['message'];
 
-		if ($response['success']) {
+		if ($response['success'])
+		{
 			return	$this->views->render('admin_createRoute', compact('message'));
-		} else {
+		}
+		else {
 			return $this->views->render('error404');
 		}
+
 	}
 
 	public function dashboard()
 	{
 		return $this->views->render('admin_start');
 	}
+
 
 }
