@@ -51,14 +51,4 @@ class WelcomeController extends Controller
     {
         return $this->views->render('error404');
     }
-
-    public function dashboard()
-    {
-        return $this->views->render('admin_start');
-    }
-
-    public function createRoute()
-    {
-        return $this->views->render('admin_createRoute');
-    }
 }

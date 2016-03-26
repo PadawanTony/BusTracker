@@ -57,18 +57,18 @@ use HubIT\App;
 	<div class="main_container">
 
 		<!--sidebar-->
-		<?=$this->insert('partials/admin_sidebar')?>
+		<?=$this->insert('_partials/sidebar')?>
 		<!--/sidebar-->
 
 		<!-- top navigation -->
-		<?=$this->insert('partials/admin_topNav')?>
+		<?=$this->insert('_partials/topNav')?>
 		<!-- /top navigation -->
 
 		<!-- page content -->
 		<div class="right_col" role="main">
 			<?=$this->section('content')?>
 
-			<?=$this->insert('partials/admin_footer')?>
+			<?=$this->insert('_partials/footer')?>
 		</div>
 		<!-- /page content -->
 
