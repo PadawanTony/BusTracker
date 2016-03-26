@@ -1,6 +1,4 @@
 <?php $this->layout('layouts/master') ?>
-<?php use HubIT\App; ?>
-
 <div class="">
     <div class="page-title">
         <div class="title_left">
@@ -49,12 +47,12 @@
                                 </div>
                                 <div class="x_content">
 
-                                    <?php if (isset($message)) { ?>
+                                    <?php if (isset($message)) : ?>
                                         <h3 style='color:forestgreen;'><?= $this->e($message) ?></h3>
-                                    <?php } ?>
+                                    <?php endif ?>
 
                                     <br/>
-                                    <form id="createRouteForm" action="<?php echo App::url('admin/routes/create'); ?>"
+                                    <form id="createRouteForm" action="<?= $this->url('admin/routes/create'); ?>"
                                           method="post" data-parsley-validate class="form-horizontal form-label-left">
 
                                         <div class="form-group">

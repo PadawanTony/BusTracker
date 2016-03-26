@@ -1,5 +1,6 @@
 <?php namespace HubIT\Controllers;
 
+use HubIT\Extension\AppUrlExtension;
 use League\Plates\Engine;
 
 /**
@@ -12,7 +13,10 @@ class Controller
 
     public function __construct()
     {
-        $this->views = new Engine(__DIR__ . '/../Views');
+        $engine = new Engine;
+        $engine->setDirectory(__DIR__.'/../Views');
+        $engine->loadExtension(new AppUrlExtension);
+        $this->views = $engine;
     }
 
 }

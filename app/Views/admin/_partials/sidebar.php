@@ -18,7 +18,7 @@ use HubIT\App;
 		<!-- menu prile quick info -->
 		<div class="profile">
 			<div class="profile_pic">
-				<img src="<?php echo App::url('img/dereeOfficialLogo.jpg'); ?>" alt="DEREE Logo" class="img-circle profile_img">
+				<img src="<?= $this->url('img/dereeOfficialLogo.jpg'); ?>" alt="DEREE Logo" class="img-circle profile_img">
 			</div>
 			<div class="profile_info">
 				<span>Welcome,</span>
@@ -38,7 +38,7 @@ use HubIT\App;
 				<ul class="nav side-menu">
 					<li><a><i class="fa fa-road"></i> Routes <span class="fa fa-chevron-down"></span></a>
 						<ul class="nav child_menu" style="display: none">
-							<li><a href="<?php echo App::url('dashboard/createRoute') ?>">Create Route</a>
+							<li><a href="<?= $this->url('dashboard/createRoute') ?>">Create Route</a>
 							</li>
 							<li><a href="#">Delete Route</a>
 							</li>

@@ -1,10 +1,11 @@
 <?php namespace HubIT\Controllers\Admin;
 
+use HubIT\Extension\AppUrlExtension;
 use League\Plates\Engine;
 
 /**
  * @author Rizart Dokollari
- * @since 6/14/2015
+ * @since  6/14/2015
  */
 class Controller
 {
@@ -12,7 +13,10 @@ class Controller
 
     public function __construct()
     {
-        $this->views = new Engine(__DIR__ . '/../../Views/admin');
+        $engine = new Engine;
+        $engine->setDirectory(__DIR__.'/../../Views/admin');
+        $engine->loadExtension(new AppUrlExtension);
+        $this->views = $engine;
     }
 
 }

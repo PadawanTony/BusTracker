@@ -16,36 +16,36 @@ use HubIT\App;
 
 	<!-- Bootstrap core CSS -->
 
-	<link href="<?php echo App::url('css/bootstrap.min.css'); ?>" rel="stylesheet">
+	<link href="<?= $this->url('css/bootstrap.min.css') ?>" rel="stylesheet">
 
-	<link href="<?php echo App::url('fonts/css/font-awesome.min.css'); ?>" rel="stylesheet">
-	<link href="<?php echo App::url('css/animate.min.css'); ?>" rel="stylesheet">
+	<link href="<?= $this->url('fonts/css/font-awesome.min.css') ?>" rel="stylesheet">
+	<link href="<?= $this->url('css/animate.min.css') ?>" rel="stylesheet">
 
 	<!-- Custom styling plus plugins -->
-	<link href="<?php echo App::url('css/custom.css'); ?>" rel="stylesheet">
-	<link href="<?php echo App::url('css/icheck/flat/green.css'); ?>" rel="stylesheet">
+	<link href="<?= $this->url('css/custom.css') ?>" rel="stylesheet">
+	<link href="<?= $this->url('css/icheck/flat/green.css') ?>" rel="stylesheet">
 
 	<!-- editor -->
 	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
-	<link href="<?php echo App::url('css/editor/external/google-code-prettify/prettify.css'); ?>" rel="stylesheet">
-	<link href="<?php echo App::url('css/editor/index.css'); ?>" rel="stylesheet">
+	<link href="<?= $this->url('css/editor/external/google-code-prettify/prettify.css') ?>" rel="stylesheet">
+	<link href="<?= $this->url('css/editor/index.css') ?>" rel="stylesheet">
 
 	<!-- select2 -->
-	<link href="<?php echo App::url('css/select/select2.min.css'); ?>" rel="stylesheet">
+	<link href="<?= $this->url('css/select/select2.min.css') ?>" rel="stylesheet">
 
 	<!-- switchery -->
-	<link rel="stylesheet" href="<?php echo App::url('css/switchery/switchery.min.css'); ?>" />
+	<link rel="stylesheet" href="<?= $this->url('css/switchery/switchery.min.css') ?>" />
 
-	<script src="<?php echo App::url('js/jquery.min.js'); ?>"></script>
+	<script src="<?= $this->url('js/jquery.min.js') ?>"></script>
 
 	<!--[if lt IE 9]>
-	<script src="../assets/js/ie8-responsive-file-warning.js'); ?>"></script>
+	<script src="../assets/js/ie8-responsive-file-warning.js') ?>"></script>
 	<![endif]-->
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
-	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js'); ?>"></script>
-	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js'); ?>"></script>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js') ?>"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js') ?>"></script>
 	<![endif]-->
 
 </head>
@@ -82,42 +82,42 @@ use HubIT\App;
 	<div id="notif-group" class="tabbed_notifications"></div>
 </div>
 
-<script src="<?php echo App::url('js/bootstrap.min.js'); ?>"></script>
+<script src="<?= $this->url('js/bootstrap.min.js') ?>"></script>
 
 <!-- bootstrap progress js -->
-<script src="<?php echo App::url('js/progressbar/bootstrap-progressbar.min.js'); ?>"></script>
-<script src="<?php echo App::url('js/nicescroll/jquery.nicescroll.min.js'); ?>"></script>
+<script src="<?= $this->url('js/progressbar/bootstrap-progressbar.min.js') ?>"></script>
+<script src="<?= $this->url('js/nicescroll/jquery.nicescroll.min.js') ?>"></script>
 <!-- icheck -->
-<script src="<?php echo App::url('js/icheck/icheck.min.js'); ?>"></script>
+<script src="<?= $this->url('js/icheck/icheck.min.js') ?>"></script>
 
-<script src="<?php echo App::url('js/custom.js'); ?>"></script>
+<script src="<?= $this->url('js/custom.js') ?>"></script>
 
 <!-- pace -->
-<script src="<?php echo App::url('js/pace/pace.min.js'); ?>"></script>
+<script src="<?= $this->url('js/pace/pace.min.js') ?>"></script>
 
 <!-- tags -->
-<script src="<?php echo App::url('js/tags/jquery.tagsinput.min.js'); ?>"></script>
+<script src="<?= $this->url('js/tags/jquery.tagsinput.min.js') ?>"></script>
 <!-- switchery -->
-<script src="<?php echo App::url('js/switchery/switchery.min.js'); ?>"></script>
+<script src="<?= $this->url('js/switchery/switchery.min.js') ?>"></script>
 <!-- daterangepicker -->
-<script type="text/javascript" src="<?php echo App::url('js/moment/moment.min.js'); ?>"></script>
-<script type="text/javascript" src="<?php echo App::url('js/datepicker/daterangepicker.js'); ?>"></script>
+<script type="text/javascript" src="<?= $this->url('js/moment/moment.min.js') ?>"></script>
+<script type="text/javascript" src="<?= $this->url('js/datepicker/daterangepicker.js') ?>"></script>
 <!-- richtext editor -->
-<script src="<?php echo App::url('js/editor/bootstrap-wysiwyg.js'); ?>"></script>
-<script src="<?php echo App::url('js/editor/external/jquery.hotkeys.js'); ?>"></script>
-<script src="<?php echo App::url('js/editor/external/google-code-prettify/prettify.js'); ?>"></script>
+<script src="<?= $this->url('js/editor/bootstrap-wysiwyg.js') ?>"></script>
+<script src="<?= $this->url('js/editor/external/jquery.hotkeys.js') ?>"></script>
+<script src="<?= $this->url('js/editor/external/google-code-prettify/prettify.js') ?>"></script>
 <!-- select2 -->
-<script src="<?php echo App::url('js/select/select2.full.js'); ?>"></script>
+<script src="<?= $this->url('js/select/select2.full.js') ?>"></script>
 <!-- form validation -->
-<script type="text/javascript" src="<?php echo App::url('js/parsley/parsley.min.js'); ?>"></script>
+<script type="text/javascript" src="<?= $this->url('js/parsley/parsley.min.js') ?>"></script>
 <!-- textarea resize -->
-<script src="<?php echo App::url('js/textarea/autosize.min.js'); ?>"></script>
+<script src="<?= $this->url('js/textarea/autosize.min.js') ?>"></script>
 <script>
 	autosize($('.resizable_textarea'));
 </script>
 <!-- Autocomplete -->
-<script type="text/javascript" src="<?php echo App::url('js/autocomplete/countries.js'); ?>"></script>
-<script src="<?php echo App::url('js/autocomplete/jquery.autocomplete.js'); ?>"></script>
+<script type="text/javascript" src="<?= $this->url('js/autocomplete/countries.js') ?>"></script>
+<script src="<?= $this->url('js/autocomplete/jquery.autocomplete.js') ?>"></script>
 
 <script type="text/javascript">
 	$(function() {
@@ -127,7 +127,7 @@ use HubIT\App;
 				value: value,
 				data: key
 			};
-		});
+		})
 		// Initialize autocomplete with custom appendTo:
 		$('#autocomplete-custom-append').autocomplete({
 			lookup: countriesArray,
