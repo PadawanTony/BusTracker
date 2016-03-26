@@ -10,6 +10,8 @@
 
     <title>Bus Tracker</title>
 
+    <link rel="shortcut icon" href="<?= $this->url('img/busstop.ico'); ?>">
+
     <!-- Bootstrap Core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
 

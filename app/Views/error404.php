@@ -21,7 +21,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="header">
 					<div class="logo">
 						<h1><a href="#">Ohh</a></h1>
-						<a href="<?= $this->url(); ?>">Go Back To Home</a>
+						<a href="<?= $this->url(''); ?>">Go Back To Home</a>
 
 					</div>
 				</div>
@@ -30,9 +30,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class="content">
 				<img src="<?= $this->url('img/error-img.png'); ?>" title="error" />
 				<p><span><label>O</label>hh.....</span>You Requested a page that is no longer here.</p>
-				<a href="<?= $this->url(); ?>">Go Back To Home</a>
+				<a href="<?= $this->url(''); ?>">Go Back To Home</a>
 				<div class="copy-right">
-					&copy CodeBurrow.com
+					&copy BusTracker.com
 				</div>
    			</div>
 			<!--End-Cotent------>
