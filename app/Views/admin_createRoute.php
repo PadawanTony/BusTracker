@@ -1,4 +1,5 @@
 <?php $this->layout('layouts/admin') ?>
+<?php use HubIT\App; ?>
 
 	<div class="">
 		<div class="page-title">
@@ -47,14 +48,19 @@
 										<div class="clearfix"></div>
 									</div>
 									<div class="x_content">
+
+										<?php
+										if ($this->e($message)) echo "<h3 style='color:forestgreen;'>" . $this->e($message) . "</h3>";
+										?>
+
 										<br />
-										<form id="createRouteForm" action="createNewRoute.php" method="post" data-parsley-validate class="form-horizontal form-label-left">
+										<form id="createRouteForm" action="<?php echo App::url('dashboard/createRoute'); ?>" method="post" data-parsley-validate class="form-horizontal form-label-left">
 
 											<div class="form-group">
 												<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nameEng">Name in English <span class="required">*</span>
 												</label>
 												<div class="col-md-6 col-sm-6 col-xs-12">
-													<input type="text" id="nameEng" name="nameENG" required="required" placeholder="To Glifada.." class="form-control col-md-7 col-xs-12">
+													<input type="text" id="nameENG" name="nameENG" required="required" placeholder="To Glifada.." class="form-control col-md-7 col-xs-12" >
 												</div>
 											</div>
 											<div class="form-group">
@@ -65,27 +71,25 @@
 												</div>
 											</div>
 											<div class="form-group">
-												<label class="control-label col-md-3 col-sm-3 col-xs-12">School</label>
+												<label class="control-label col-md-3 col-sm-3 col-xs-12" for="school">Choose School <span class="required">*</span>
+												</label>
 												<div class="col-md-6 col-sm-6 col-xs-12">
-													<div id="school" class="btn-group" data-toggle="buttons">
-														<label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-															<input type="radio" name="school" value="deree"> &nbsp; DEREE &nbsp;
-														</label>
-														<label class="btn btn-primary active" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-															<input type="radio" name="school" value="pierce" checked=""> Pierce
-														</label>
-													</div>
+													<select id="school" name="school" class="form-control" required>
+														<option value="deree">DEREE</option>
+														<option value="pierce">Pierce</option>
+													</select>
 												</div>
 											</div>
 											<div class="ln_solid"></div>
 											<div class="form-group">
 												<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-													<button type="submit" class="btn btn-primary">Cancel</button>
+													<button type="reset" class="btn btn-primary">Cancel</button>
 													<button type="submit" class="btn btn-success">Submit</button>
 												</div>
 											</div>
 
 										</form>
+
 									</div>
 								</div>
 							</div>
