@@ -38,9 +38,9 @@ use HubIT\App;
 				<ul class="nav side-menu">
 					<li><a><i class="fa fa-road"></i> Routes <span class="fa fa-chevron-down"></span></a>
 						<ul class="nav child_menu" style="display: none">
-							<li><a href="<?= $this->url('dashboard/createRoute') ?>">Create Route</a>
+							<li><a href="<?= $this->url('admin/routes/create') ?>">Create Route</a>
 							</li>
-							<li><a href="#">Delete Route</a>
+							<li><a href="<?= $this->url('admin/routes/delete') ?>">Delete Route</a>
 							</li>
 							<li><a href="#">Update Route</a>
 							</li>

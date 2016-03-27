@@ -41,7 +41,9 @@ $mux->get("{$baseUrl}404", 'HubIT\Controllers\WelcomeController:error404');
 // Admin Panel
 $mux->get("{$baseUrl}admin/dashboard", 'HubIT\Controllers\Admin\DashboardController:dashboard');
 $mux->get("{$baseUrl}admin/routes/create", 'HubIT\Controllers\Admin\RoutesController:create');
-$mux->post("{$baseUrl}admin/routes/create", 'HubIT\Controllers\Admin\RoutesController:post');
+$mux->post("{$baseUrl}admin/routes/create", 'HubIT\Controllers\Admin\RoutesController:postCreate');
+$mux->get("{$baseUrl}admin/routes/delete", 'HubIT\Controllers\Admin\RoutesController:delete');
+$mux->post("{$baseUrl}admin/routes/delete", 'HubIT\Controllers\Admin\RoutesController:postDelete');
 
 // Api
 $mux->post("{$baseUrl}api/v1/coordinates", 'HubIT\Controllers\Api\ApiCoordinatesController:getCoordinates');
