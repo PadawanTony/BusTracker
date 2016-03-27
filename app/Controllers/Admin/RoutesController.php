@@ -66,7 +66,7 @@ class RoutesController extends Controller
 			return $this->views->render('routes/delete', compact('response','successDelete'));
 		}
 
-		return $this->views->render('error404');
+		return $this->views->render('../error404');
 
 	}
 

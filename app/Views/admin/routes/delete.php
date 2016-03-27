@@ -72,7 +72,7 @@ $this->layout('layouts/master');
 									<td class=""><?php echo $row['nameENG'] ?></td>
 									<td class=""><?php echo $row['nameGR'] ?></td>
 									<td class=""><?php echo $row['school'] ?></td>
-									<td class="last"><a href="#" style="color: tomato;">Delete</a>
+									<td class="last"><button id="individual_btn" class="btn btn-danger" type="submit" name="individual_btn" value="<?php echo $row['ID'] ?>"> <i class="fa fa-trash-o"></i> </button>
 									</td>
 								</tr>
 
@@ -82,7 +82,7 @@ $this->layout('layouts/master');
 							</table>
 
 							<div class="form-group-lg" style="margin: 10px auto;">
-								<button style="margin: 30px auto;" type="submit" class="btn btn-danger btn-block pull-left">Delete Selected Entries</button>
+								<button style="margin: 30px auto;" type="submit" name="multiple_btn" class="btn btn-danger btn-block pull-left">Delete Selected Entries</button>
 							</div>
 
 						</form>

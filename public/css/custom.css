@@ -6365,3 +6365,13 @@ ul.notifications {
 .copyright-info {
     padding: 8px 0;
 }
+
+#individual_btn {
+    color: tomato;
+    background: none;
+    border: none;
+}
+
+#individual_btn:hover {
+    font-size: x-large;
+}
