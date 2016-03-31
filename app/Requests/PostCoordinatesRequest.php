@@ -46,4 +46,5 @@ class PostCoordinatesRequest extends ApiController
 	{
 		return $_POST[ self::LOCATION ];
 	}
+
 }
