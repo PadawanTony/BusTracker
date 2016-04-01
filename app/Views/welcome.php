@@ -534,18 +534,16 @@
 	var clickBtnValue;
 	var clickBtnTitle;
 
-	$(document).ready(function () {
-		clickBtnValue = "Glifada";
-		clickBtnTitle = "Glifada";
+	function makeRequest() {
 		var request = $.ajax({
 			url: "<?= $this->e($coordinatesUrl) ?>",
 			type: "POST",
-			data: {location: 'Glifada'}
+			data: {location: clickBtnValue}
 		});
 		request.done(function (results) {
 			var mapContainer = document.getElementById("googleMap");
 			var coordinates = JSON.parse(results).data;
-			clickBtnTitle = coordinates.prefix + clickBtnTitle;
+			var temp = coordinates.prefix + clickBtnTitle;
 
 //				/** Debugging **/
 //				console.log(coordinates);
@@ -568,113 +566,32 @@
 				marker = new google.maps.Marker({
 					position: myLatLong,
 					map: map,
-					title: 'To Glifada',
+					title: temp,
 					icon: "<?= $this->url('img/busIcon3.png'); ?>"
 				});
 			}
-
 			setMarker();
 
+			$("#dropdownForMap_Title").html(temp);
+			temp = "";
 		});
+	}
+
+	$(document).ready(function () {
+		clickBtnValue = "Glifada";
+		clickBtnTitle = "Glifada";
+		makeRequest();
 	});
 
 
 	$('.MapRoutes').click(function () {
 		clickBtnValue = $(this).val();
 		clickBtnTitle = $(this).html();
-
-		var request = $.ajax({
-			url: "<?= $this->e($coordinatesUrl) ?>",
-			type: "POST",
-			data: {location: clickBtnValue}
-		});
-		request.done(function (results) {
-			var mapContainer = document.getElementById("googleMap");
-			var coordinates = JSON.parse(results).data;
-			clickBtnTitle = coordinates.prefix + clickBtnTitle;
-
-//			/** Debugging **/
-//			console.log(coordinates);
-//			console.log(coordinates.ID);
-//			console.log(coordinates.lat);
-
-			var lat = coordinates.lat;
-			var lng = coordinates.lng;
-			var myLatLong = new google.maps.LatLng(lat, lng);
-
-			var mapOptions = {
-				center: myLatLong,
-				zoom: 16,
-				scrollwheel: false,
-				navigationControl: true,
-				mapTypeControl: true,
-				scaleControl: true,
-				draggable: false,
-				mapTypeId: google.maps.MapTypeId.ROADMAP
-			};
-			map = new google.maps.Map(mapContainer, mapOptions);
-
-			function setMarker() {
-				marker = new google.maps.Marker({
-					position: myLatLong,
-					map: map,
-					title: clickBtnTitle,
-					icon: "<?= $this->url('img/busIcon3.png'); ?>"
-				});
-			}
-
-			$("#dropdownForMap_Title").html(clickBtnTitle);
-			setMarker();
-		});
+		makeRequest();
 	});
 
-	function api_call() {
-		var theRequest = $.ajax({
-			url: "<?= $this->e($coordinatesUrl) ?>",
-			type: "POST",
-			data: {location: clickBtnValue}
-		});
-		theRequest.done(function (results) {
-			var mapContainer = document.getElementById("googleMap");
-			var coordinates = JSON.parse(results).data;
-
-//			/** Debugging **/
-//			console.log(coordinates);
-//			console.log(coordinates.ID);
-//			console.log(coordinates.lat);
-
-			var lat = coordinates.lat;
-			var lng = coordinates.lng;
-			var myLatLong = new google.maps.LatLng(lat, lng);
-
-			var mapOptions = {
-				center: myLatLong,
-				zoom: 16,
-				scrollwheel: false,
-				navigationControl: true,
-				mapTypeControl: true,
-				scaleControl: true,
-				draggable: false,
-				mapTypeId: google.maps.MapTypeId.ROADMAP
-			};
-			map = new google.maps.Map(mapContainer, mapOptions);
-
-			function setMarker() {
-				marker = new google.maps.Marker({
-					position: myLatLong,
-					map: map,
-					title: clickBtnTitle,
-					icon: "<?= $this->url('img/busIcon3.png'); ?>"
-				});
-			}
-
-			$("#dropdownForMap_Title").html(clickBtnTitle);
-			setMarker();
-		});
-	}
-
 	var intervalTime = 5000;
-	setInterval(api_call, intervalTime);
+	setInterval(makeRequest, intervalTime);
 </script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB19HgdXxADeLSEIURE4xivOI0OXwXpY5U"
         type="text/javascript">

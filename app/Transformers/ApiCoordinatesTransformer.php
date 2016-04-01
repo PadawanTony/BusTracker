@@ -29,7 +29,7 @@ class ApiCoordinatesTransformer extends Transformer
 			"theTime" => $item["theTime"],
 			"lat"     => $item["lat"],
 			"lng"     => $item["lng"],
-			"prefix"  => $prefix,
+			"prefix"  => $prefix
 		];
 	}
 }
