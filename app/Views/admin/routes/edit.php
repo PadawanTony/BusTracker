@@ -34,14 +34,17 @@ $this->layout('layouts/master');
 		<div class="col-md-12 col-sm-12 col-xs-12">
 			<div class="x_panel">
 				<div class="x_title">
-					<h2>You can edit the routes <u>on the spot</u></h2>
+					<h2>You can edit routes on the spot by clicking the action button</h2>
 					<div class="clearfix"></div>
+					<div>To edit multiple routes, you have to select the relevant checkboxes on the left.</div>
 				</div>
 				<div class="x_content">
 
-					<?php if (isset($successDelete['message'])) : ?>
-						<h3 style='color:forestgreen;'><?= $this->e($successDelete['message']) ?></h3>
-					<?php endif ?>
+					<?php if ($successEdit['success'] == 1) { ?>
+						<h3 style='color:forestgreen;'><?= $this->e($successEdit['message']) ?></h3>
+					<?php } else if ($successEdit['success'] == 2) { ?>
+						<h3 style='color:tomato;'><?= $this->e($successEdit['message']) ?></h3>
+					<?php } ?>
 
 					<form action="<?= $this->url('admin/routes/edit'); ?>" method="post">
 						<table id="example" class="table table-striped responsive-utilities jambo_table">

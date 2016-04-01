@@ -73,7 +73,7 @@ class EditRoutes extends Database
 
 			return $response;
 
-		} else {
+		} else if( isset($thePost['selections']) ) {
 
 			foreach ($thePost['selections'] as $routeID) {
 
@@ -137,10 +137,13 @@ class EditRoutes extends Database
 			}
 
 			return $response;
+		} else {
+			$response["success"] = 2;
+			$response["message"] = "No Route Was Selected for Modification";
+
+			return $response;
 		}
-
-		var_dump($thePost);
-
 	}
+
 }
 
