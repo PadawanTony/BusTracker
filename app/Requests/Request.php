@@ -1,4 +1,4 @@
-<?php namespace HubIT\Requests;
+<?php namespace CodeBurrow\Requests;
 
 /**
  * @author Rizart Dokollari <r.dokollari@gmail.com>

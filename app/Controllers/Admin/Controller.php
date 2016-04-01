@@ -1,6 +1,6 @@
-<?php namespace HubIT\Controllers\Admin;
+<?php namespace CodeBurrow\Controllers\Admin;
 
-use HubIT\Extension\AppUrlExtension;
+use CodeBurrow\Extension\AppUrlExtension;
 use League\Plates\Engine;
 
 /**

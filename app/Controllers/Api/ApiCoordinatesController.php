@@ -1,8 +1,8 @@
-<?php namespace HubIT\Controllers\Api;
+<?php namespace CodeBurrow\Controllers\Api;
 
-use HubIT\Requests\PostCoordinatesRequest;
-use HubIT\Services\CoordinatesService;
-use HubIT\Transformers\ApiCoordinatesTransformer;
+use CodeBurrow\Requests\PostCoordinatesRequest;
+use CodeBurrow\Services\CoordinatesService;
+use CodeBurrow\Transformers\ApiCoordinatesTransformer;
 
 /**
  * @author Rizart Dokollari <r.dokollari@gmail.com>

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "abb5a3dfd7ea59ded09bedc7fa866fa9",
+    "hash": "cfb25a22fbb05900db6377e5911c1761",
     "packages": [
         {
             "name": "corneltek/class-template",
@@ -108,16 +108,16 @@
         },
         {
             "name": "corneltek/codegen",
-            "version": "2.7.0",
+            "version": "2.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/c9s/CodeGen.git",
-                "reference": "3ab8d6beabb400c4542b13023063163e79f2c9ed"
+                "reference": "b2a1835b4a0c63cb5f1c1c0a44176adbbfd46dcd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/c9s/CodeGen/zipball/3ab8d6beabb400c4542b13023063163e79f2c9ed",
-                "reference": "3ab8d6beabb400c4542b13023063163e79f2c9ed",
+                "url": "https://api.github.com/repos/c9s/CodeGen/zipball/b2a1835b4a0c63cb5f1c1c0a44176adbbfd46dcd",
+                "reference": "b2a1835b4a0c63cb5f1c1c0a44176adbbfd46dcd",
                 "shasum": ""
             },
             "require": {
@@ -129,6 +129,11 @@
                 "corneltek/phpunit-testmore": "dev-master"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.8.x-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "CodeGen\\": "src/CodeGen/"
@@ -147,7 +152,7 @@
             ],
             "description": "PHP Code Generation Library",
             "homepage": "http://github.com/c9s/CodeGen",
-            "time": "2015-12-25 12:47:12"
+            "time": "2016-03-26 07:10:40"
         },
         {
             "name": "corneltek/getoptionkit",
@@ -438,16 +443,16 @@
         },
         {
             "name": "symfony/class-loader",
-            "version": "v2.8.3",
+            "version": "v2.8.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/class-loader.git",
-                "reference": "517ab0554b6a5744d04480cb06873ffbd9442d73"
+                "reference": "7d362c22710980730d46a5d039e788946a2938cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/class-loader/zipball/517ab0554b6a5744d04480cb06873ffbd9442d73",
-                "reference": "517ab0554b6a5744d04480cb06873ffbd9442d73",
+                "url": "https://api.github.com/repos/symfony/class-loader/zipball/7d362c22710980730d46a5d039e788946a2938cb",
+                "reference": "7d362c22710980730d46a5d039e788946a2938cb",
                 "shasum": ""
             },
             "require": {
@@ -487,20 +492,20 @@
             ],
             "description": "Symfony ClassLoader Component",
             "homepage": "https://symfony.com",
-            "time": "2016-01-30 15:58:35"
+            "time": "2016-03-10 19:33:53"
         },
         {
             "name": "symfony/finder",
-            "version": "v2.8.3",
+            "version": "v2.8.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "877bb4b16ea573cc8c024e9590888fcf7eb7e0f7"
+                "reference": "ca24cf2cd4e3826f571e0067e535758e73807aa1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/877bb4b16ea573cc8c024e9590888fcf7eb7e0f7",
-                "reference": "877bb4b16ea573cc8c024e9590888fcf7eb7e0f7",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/ca24cf2cd4e3826f571e0067e535758e73807aa1",
+                "reference": "ca24cf2cd4e3826f571e0067e535758e73807aa1",
                 "shasum": ""
             },
             "require": {
@@ -536,7 +541,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2016-02-22 16:12:45"
+            "time": "2016-03-10 10:53:53"
         },
         {
             "name": "symfony/polyfill-apcu",

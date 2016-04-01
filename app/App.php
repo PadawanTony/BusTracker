@@ -3,12 +3,12 @@
  * @author Rizart Dokollari <r.dokollari@gmail.com>
  * @since  10/03/16
  */
-namespace HubIT;
+namespace CodeBurrow;
 
 /**
  * Class App
  *
- * @package HubIT
+ * @package CodeBurrow
  */
 class App
 {

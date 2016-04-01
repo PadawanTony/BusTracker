@@ -1,6 +1,6 @@
-<?php namespace HubIT\Services;
+<?php namespace CodeBurrow\Services;
 
-use HubIT\Database;
+use CodeBurrow\Database;
 
 class CreateNewRoute extends Database
 {

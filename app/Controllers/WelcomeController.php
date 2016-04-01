@@ -1,8 +1,8 @@
-<?php namespace HubIT\Controllers;
+<?php namespace CodeBurrow\Controllers;
 
-use HubIT\App;
-use HubIT\Repositories\QuoteRepositories\StaticQuoteRepository;
-use HubIT\Repositories\UserRepositories\StaticUserRepository;
+use CodeBurrow\App;
+use CodeBurrow\Repositories\QuoteRepositories\StaticQuoteRepository;
+use CodeBurrow\Repositories\UserRepositories\StaticUserRepository;
 
 /**
  * @author Rizart Dokollari <r.dokollari@gmail.com>

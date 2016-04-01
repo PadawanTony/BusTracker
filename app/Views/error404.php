@@ -1,5 +1,5 @@
 <?php
-use HubIT\App;
+use CodeBurrow\App;
 ?>
 <!--
 Author: W3layouts

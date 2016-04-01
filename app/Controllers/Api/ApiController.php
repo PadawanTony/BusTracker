@@ -4,7 +4,7 @@
  * @since  10/03/16
  */
 
-namespace HubIT\Controllers\Api;
+namespace CodeBurrow\Controllers\Api;
 
 
 /**

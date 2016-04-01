@@ -1,4 +1,4 @@
-<?php namespace HubIT\Models;
+<?php namespace CodeBurrow\Models;
 
 /**
  * Created by PhpStorm.

@@ -5,7 +5,7 @@
  * Date: 3/23/2016
  * Time: 18:48
  */
-use HubIT\App;
+use CodeBurrow\App;
 ?>
 <div class="col-md-3 left_col">
 	<div class="left_col scroll-view">

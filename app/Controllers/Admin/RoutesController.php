@@ -3,11 +3,11 @@
  * @author Rizart Dokollari <r.dokollari@gmail.com>
  * @since  26/03/16
  */
-namespace HubIT\Controllers\Admin;
+namespace CodeBurrow\Controllers\Admin;
 
-use HubIT\Services\CreateNewRoute;
-use HubIT\Services\ViewRoutes;
-use HubIT\Services\DeleteRoutes;
+use CodeBurrow\Services\CreateNewRoute;
+use CodeBurrow\Services\ViewRoutes;
+use CodeBurrow\Services\DeleteRoutes;
 
 class RoutesController extends Controller
 {

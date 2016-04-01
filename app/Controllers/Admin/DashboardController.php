@@ -1,4 +1,4 @@
-<?php namespace HubIT\Controllers\Admin;
+<?php namespace CodeBurrow\Controllers\Admin;
 
 class DashboardController extends Controller
 {

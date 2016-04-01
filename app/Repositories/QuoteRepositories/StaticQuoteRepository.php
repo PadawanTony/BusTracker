@@ -1,4 +1,4 @@
-<?php namespace HubIT\Repositories\QuoteRepositories;
+<?php namespace CodeBurrow\Repositories\QuoteRepositories;
 /**
  * Created by PhpStorm.
  * User: Rizart
