@@ -1,6 +1,6 @@
-<?php namespace HubIT\Services;
+<?php namespace CodeBurrow\Services;
 
-use HubIT\Database;
+use CodeBurrow\Database;
 
 /**
  * Class CoordinatesService
@@ -11,7 +11,7 @@ class CoordinatesService extends Database
 {
 	const GLIFADA = 'Glifada';
 	const KIFISIA = 'Kifisia';
-	const NOM = 'Nom';
+	const NOM = 'Nomismatokopeio';
 
 	/**
 	 * Check, and return coordinates accordingly.
@@ -67,7 +67,7 @@ class CoordinatesService extends Database
 	 */
 	private function fetchCoordinates($routeId)
 	{
-		$query = "SELECT * FROM Coordinates WHERE routeID = {$routeId} ORDER BY theTime DESC LIMIT 1;";
+		$query = "SELECT * FROM Coordinates WHERE routeID = {$routeId} AND theDate = CURDATE() ORDER BY theTime DESC LIMIT 1;";
 
 		$stmt = $this->getDbConnection()->prepare($query);
 

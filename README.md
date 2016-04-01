@@ -4,3 +4,6 @@
 ## Configuration
 - Copy .env.example to .env
 - Add/Replace as needed
+
+## Commands
+- Import database: $ `php database/commands/import.php`

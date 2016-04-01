@@ -1,4 +1,4 @@
-<?php namespace HubIT\Transformers;
+<?php namespace CodeBurrow\Transformers;
 
 /**
  * Abstract Class. Transforms collection array.
@@ -16,6 +16,12 @@ class ApiCoordinatesTransformer extends Transformer
 	 */
 	public function transform($item)
 	{
+		if ($item["routeID"] == 1 || $item["routeID"] == 3 || $item["routeID"] == 5) {
+			$prefix = "From ";
+		} else {
+			$prefix = "To ";
+		}
+
 		return [
 			"ID"      => $item["ID"],
 			"routeID" => $item["routeID"],
@@ -23,6 +29,7 @@ class ApiCoordinatesTransformer extends Transformer
 			"theTime" => $item["theTime"],
 			"lat"     => $item["lat"],
 			"lng"     => $item["lng"],
+			"prefix"  => $prefix
 		];
 	}
 }

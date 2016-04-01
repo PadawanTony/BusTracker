@@ -1,4 +1,4 @@
-<?php namespace HubIT\Repositories\QuoteRepositories;
+<?php namespace CodeBurrow\Repositories\QuoteRepositories;
 /**
  * Created by PhpStorm.
  * User: Rizart
@@ -12,7 +12,7 @@ class StaticQuoteRepository implements QuoteRepository
 
     public function __construct()
     {
-        $this->quotes = require __DIR__ . '/../../storage/quotes.php';
+        $this->quotes = require __DIR__.'/../../../storage/quotes.php';
     }
 
     public function getRandom()

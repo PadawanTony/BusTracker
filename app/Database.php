@@ -1,4 +1,4 @@
-<?php namespace HubIT;
+<?php namespace CodeBurrow;
 
 use PDO;
 use PDOException;

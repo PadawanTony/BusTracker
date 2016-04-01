@@ -1,4 +1,4 @@
-<?php namespace HubIT\Requests;
+<?php namespace CodeBurrow\Requests;
 
 /**
  * Validate post data.
@@ -6,8 +6,8 @@
  * @author Rizart Dokollari <r.dokollari@gmail.com>
  * @since  10/03/16
  */
-use HubIT\Controllers\Api\ApiController;
-use HubIT\Services\CoordinatesService;
+use CodeBurrow\Controllers\Api\ApiController;
+use CodeBurrow\Services\CoordinatesService;
 
 /**
  * Class PostCoordinatesRequest
@@ -46,4 +46,5 @@ class PostCoordinatesRequest extends ApiController
 	{
 		return $_POST[ self::LOCATION ];
 	}
+
 }

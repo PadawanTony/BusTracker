@@ -1,22 +1,28 @@
 {
-  "name": "hub-it/club",
-  "description": "Web application for the DEREE - Bus Tracking system.",
-  "type": "project",
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Antony Kalogeropoulos",
-      "email": "anthonykalogeropoulos@gmail.com"
-    }
-  ],
-  "require": {
-    "corneltek/pux": "^1.5",
-    "league/plates": "^3.1",
-    "vlucas/phpdotenv": "^2.2"
-  },
-  "autoload": {
-    "psr-4": {
-      "HubIT\\": "app/"
-    }
-  }
+   "name": "hub-it/club",
+   "description": "Web application for the DEREE - Bus Tracking system.",
+   "type": "project",
+   "license": "MIT",
+   "authors": [
+	  {
+		 "name": "Antony Kalogeropoulos",
+		 "email": "anthonykalogeropoulos@gmail.com"
+	  }
+   ],
+   "require": {
+	  "php": "^5.5",
+	  "vlucas/phpdotenv": "^2.2",
+	  "league/plates": "^3.1",
+	  "corneltek/pux": "^1.6"
+   },
+   "require-dev": {
+	  "codeception/codeception": "^2.1"
+   },
+   "autoload": {
+	  "psr-4": {
+		 "CodeBurrow\\": "app/",
+		 "Database\\": "database/",
+		 "Storage\\": "storage/"
+	  }
+   }
 }

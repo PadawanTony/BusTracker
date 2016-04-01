@@ -1,4 +1,4 @@
-<?php namespace HubIT\Transformers;
+<?php namespace CodeBurrow\Transformers;
 
 /**
  * Abstract Class. Transforms collection array.

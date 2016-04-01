@@ -12,8 +12,8 @@
 */
 use Pux\Executor;
 
-require __DIR__ . '/../vendor/autoload.php';
-require __DIR__ . '/../app/setup.php';
+require __DIR__.'/../vendor/autoload.php';
+require __DIR__.'/../app/setup.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -27,20 +27,31 @@ require __DIR__ . '/../app/setup.php';
 |
 */
 $mux = new \Pux\Mux;
-$dotenv = new Dotenv\Dotenv(__DIR__ . DIRECTORY_SEPARATOR . "..");
 
+// Require Environment Variable
+$dotenv = new Dotenv\Dotenv(__DIR__.DIRECTORY_SEPARATOR."..");
 $dotenv->load();
 $dotenv->required('BASE_DIR');
-
 $baseUrl = getenv('BASE_DIR');
 
-$mux->get("$baseUrl", 'HubIT\Controllers\WelcomeController:index');
-$mux->get("{$baseUrl}404", 'HubIT\Controllers\WelcomeController:error404');
+// Users Panel
+$mux->get("$baseUrl", 'CodeBurrow\Controllers\WelcomeController:index');
+$mux->get("{$baseUrl}404", 'CodeBurrow\Controllers\WelcomeController:error404');
 
-$mux->post("{$baseUrl}api/v1/coordinates",
-	'HubIT\Controllers\Api\ApiCoordinatesController:getCoordinates');
+// Admin Panel
+$mux->get("{$baseUrl}admin/dashboard", 'CodeBurrow\Controllers\Admin\DashboardController:dashboard');
+$mux->get("{$baseUrl}admin/routes/create", 'CodeBurrow\Controllers\Admin\RoutesController:create');
+$mux->post("{$baseUrl}admin/routes/create", 'CodeBurrow\Controllers\Admin\RoutesController:postCreate');
+$mux->get("{$baseUrl}admin/routes/delete", 'CodeBurrow\Controllers\Admin\RoutesController:delete');
+$mux->post("{$baseUrl}admin/routes/delete", 'CodeBurrow\Controllers\Admin\RoutesController:postDelete');
+$mux->get("{$baseUrl}admin/routes/edit", 'CodeBurrow\Controllers\Admin\RoutesController:edit');
+$mux->post("{$baseUrl}admin/routes/edit", 'CodeBurrow\Controllers\Admin\RoutesController:postEdit');
 
-$route = $mux->dispatch($_SERVER['REQUEST_URI']);
+// Api
+$mux->post("{$baseUrl}api/v1/coordinates", 'CodeBurrow\Controllers\Api\ApiCoordinatesController:getCoordinates');
+
+// Dispatch Routes
+$route = $mux->dispatch($_SERVER[ 'REQUEST_URI' ]);
 
 if ($route === null) $route = $mux->dispatch('/404');
 

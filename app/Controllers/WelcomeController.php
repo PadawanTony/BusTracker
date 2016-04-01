@@ -1,8 +1,9 @@
-<?php namespace HubIT\Controllers;
+<?php namespace CodeBurrow\Controllers;
 
-use HubIT\App;
-use HubIT\Repositories\QuoteRepositories\StaticQuoteRepository;
-use HubIT\Repositories\UserRepositories\StaticUserRepository;
+use CodeBurrow\App;
+use CodeBurrow\Repositories\QuoteRepositories\StaticQuoteRepository;
+use CodeBurrow\Repositories\UserRepositories\StaticUserRepository;
+use CodeBurrow\Services\ViewRoutes;
 
 /**
  * @author Rizart Dokollari <r.dokollari@gmail.com>
@@ -12,43 +13,47 @@ use HubIT\Repositories\UserRepositories\StaticUserRepository;
  */
 class WelcomeController extends Controller
 {
-	/**
-	 * @var StaticUserRepository
-	 */
-	private $userRepository;
-	/**
-	 * @var StaticQuoteRepository
-	 */
-	private $quotesRepository;
 
-	/**
-	 * WelcomeController constructor.
-	 */
-	public function __construct()
-	{
-		parent::__construct();
+    private $viewRoutesService;
 
-		$this->userRepository = new StaticUserRepository();
-		$this->quotesRepository = new StaticQuoteRepository();
-	}
+    /**
+     * @var StaticUserRepository
+     */
+    private $userRepository;
+    /**
+     * @var StaticQuoteRepository
+     */
+    private $quotesRepository;
 
-	/**
-	 * Show all users
-	 */
-	public function index()
-	{
-		$title = 'Bus Tracker';
+    /**
+     * WelcomeController constructor.
+     */
+    public function __construct()
+    {
+        parent::__construct();
 
-		$randomQuote = $this->quotesRepository->getRandom();
+        $this->userRepository = new StaticUserRepository();
+        $this->quotesRepository = new StaticQuoteRepository();
+        $this->viewRoutesService = new ViewRoutes();
+    }
 
-		$coordinatesUrl = App::getUrl('api/v1/coordinates');
+    /**
+     * Show all users
+     */
+    public function index()
+    {
+        $title = 'Bus Tracker';
+        $randomQuote = $this->quotesRepository->getRandom();
+        $routes = $this->viewRoutesService->fetchAllRoutes();
+        $routes = $routes[ 'routes' ];
 
-		return $this->views->render('welcome', compact('users', 'title', 'randomQuote', 'coordinatesUrl'));
-	}
+        $coordinatesUrl = App::url('api/v1/coordinates');
 
+        return $this->views->render('welcome', compact('users', 'title', 'randomQuote', 'coordinatesUrl', 'routes'));
+    }
 
-	public function error404()
-	{
-		return '404';
-	}
+    public function error404()
+    {
+        return $this->views->render('error404');
+    }
 }

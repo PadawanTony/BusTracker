@@ -1,6 +1,6 @@
-<?php namespace HubIT\Repositories\UserRepositories;
+<?php namespace CodeBurrow\Repositories\UserRepositories;
 
-use HubIT\Models\User;
+use CodeBurrow\Models\User;
 
 /**
  * Static users. Please add your first name (the only required), last name, an url with an avatar of yours, and a website.
