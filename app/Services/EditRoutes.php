@@ -38,9 +38,7 @@ class EditRoutes extends Database
 			if (!empty($dbRoute)) {
 
 				$update_route = "UPDATE Routes SET nameENG='$theNameENG', nameGR='$theNameGR', school='$theSchool' WHERE ID = '$theID';";
-
-				var_dump($update_route);
-
+				
 				try {
 					$stmt_route = $db->prepare($update_route);
 					$result_route = $stmt_route->execute();
