@@ -7,14 +7,16 @@ class EditRoutes extends Database
 
 	public function editAllRoutes($thePost)
 	{
+		var_dump($thePost);
+
 		if (isset($thePost['individual_btn'])) {
 
 			$theID = $thePost['individual_btn'];
-			$theNameENG = $thePost['editNameENG'];
-			$theNameGR = $thePost['editNameGR'];
-			$theSchool = $thePost['editSchool'];
+			$theNameENG = $thePost['editNameENG'][$theID];
+			$theNameGR = $thePost['editNameGR'][$theID];
+			$theSchool = $thePost['editSchool'][$theID];
 
-			$query_routes = "SELECT * FROM Routes WHERE ID = $theID;";
+			$query_routes = "SELECT * FROM Routes WHERE ID = '$theID';";
 
 			try {
 				$db = $this->getDbConnection();
@@ -38,7 +40,7 @@ class EditRoutes extends Database
 			if (!empty($dbRoute)) {
 
 				$update_route = "UPDATE Routes SET nameENG='$theNameENG', nameGR='$theNameGR', school='$theSchool' WHERE ID = '$theID';";
-				
+
 				try {
 					$stmt_route = $db->prepare($update_route);
 					$result_route = $stmt_route->execute();
