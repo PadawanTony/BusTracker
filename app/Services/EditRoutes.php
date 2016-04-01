@@ -7,8 +7,6 @@ class EditRoutes extends Database
 
 	public function editAllRoutes($thePost)
 	{
-		var_dump($thePost);
-
 		if (isset($thePost['individual_btn'])) {
 
 			$theID = $thePost['individual_btn'];
