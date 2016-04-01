@@ -42,7 +42,7 @@ use CodeBurrow\App;
 							</li>
 							<li><a href="<?= $this->url('admin/routes/delete') ?>">Delete Route</a>
 							</li>
-							<li><a href="#">Update Route</a>
+							<li><a href="<?= $this->url('admin/routes/edit') ?>">Edit Route</a>
 							</li>
 						</ul>
 					</li>

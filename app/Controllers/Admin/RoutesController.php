@@ -8,12 +8,14 @@ namespace CodeBurrow\Controllers\Admin;
 use CodeBurrow\Services\CreateNewRoute;
 use CodeBurrow\Services\ViewRoutes;
 use CodeBurrow\Services\DeleteRoutes;
+use CodeBurrow\Services\EditRoutes;
 
 class RoutesController extends Controller
 {
     private $createNewRouteService;
     private $viewRoutesService;
     private $deleteRoutesService;
+    private $editRoutesService;
 
     public function __construct()
     {
@@ -22,6 +24,7 @@ class RoutesController extends Controller
         $this->createNewRouteService = new CreateNewRoute();
         $this->viewRoutesService = new ViewRoutes();
         $this->deleteRoutesService = new DeleteRoutes();
+        $this->editRoutesService = new EditRoutes();
     }
 
     public function create()
@@ -64,6 +67,31 @@ class RoutesController extends Controller
 
 		if ($successDelete[ 'success' ]) {
 			return $this->views->render('routes/delete', compact('response','successDelete'));
+		}
+
+		return $this->views->render('../error404');
+
+	}
+
+	public function edit()
+	{
+		$response = $this->viewRoutesService->fetchAllRoutes();
+
+		if ($response[ 'success' ]) {
+			return $this->views->render('routes/edit', compact('response'));
+		}
+
+		return $this->views->render('error404');
+	}
+
+	public function postEdit()
+	{
+		$successEdit = $this->editRoutesService->editAllRoutes($_POST);
+
+		$response = $this->viewRoutesService->fetchAllRoutes();
+
+		if ($successEdit[ 'success' ]) {
+			return $this->views->render('routes/edit', compact('response','successEdit'));
 		}
 
 		return $this->views->render('../error404');
