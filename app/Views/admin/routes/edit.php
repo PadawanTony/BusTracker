@@ -69,9 +69,9 @@ $this->layout('layouts/master');
 										<input type="checkbox" name="selections[]" value="<?php echo $row['ID'] ?>" class="tableflat">
 									</td>
 									<td class=""><?php echo $row['ID'] ?></td>
-									<td class=""><input style="border: 1px solid lightblue;" type="text" id="editNameENG" name="editNameENG[]" value="<?php echo $row['nameENG'] ?>"/></td>
-									<td class=""><input style="border: 1px solid lightblue;" type="text" id="editNameGR" name="editNameGR[]" value="<?php echo $row['nameGR'] ?>"/></td>
-									<td class=""><input style="border: 1px solid lightblue;" type="text" id="editSchool" name="editSchool[]" value="<?php echo $row['school'] ?>"/></td>
+									<td class=""><input style="border: 1px solid lightblue;" type="text" id="editNameENG" name="editNameENG[<?php echo $row['ID'] ?>]" value="<?php echo $row['nameENG'] ?>"/></td>
+									<td class=""><input style="border: 1px solid lightblue;" type="text" id="editNameGR" name="editNameGR[<?php echo $row['ID'] ?>]" value="<?php echo $row['nameGR'] ?>"/></td>
+									<td class=""><input style="border: 1px solid lightblue;" type="text" id="editSchool" name="editSchool[<?php echo $row['ID'] ?>]" value="<?php echo $row['school'] ?>"/></td>
 									<td class="last"><button id="individual_btn" class="btn btn-danger" type="submit" name="individual_btn" value="<?php echo $row['ID'] ?>"> <i class="fa fa-pencil-square-o"></i> </button>
 									</td>
 								</tr>
