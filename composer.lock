@@ -4,7 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "cfb25a22fbb05900db6377e5911c1761",
+    "hash": "1212998926b45fad4bf6e6ac91cf052d",
+    "content-hash": "653951428fa8be2eceeb279a29aefad5",
     "packages": [
         {
             "name": "corneltek/class-template",
@@ -715,6 +716,8 @@
     "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": "5.5.33"
+    },
     "platform-dev": []
 }
