@@ -38,6 +38,7 @@ class ViewRoutes extends Database
 				$theroutes["nameGR"] = $row["nameGR"];
 				$theroutes["nameENG"] = $row["nameENG"];
 				$theroutes["school"] = $row["school"];
+				$theroutes["nickName"] = $row["nickName"];
 				array_push($response["routes"], $theroutes);
 			}
 

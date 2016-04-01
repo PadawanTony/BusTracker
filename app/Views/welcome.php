@@ -345,16 +345,16 @@
 								<span class="caret"></span>
 							</button>
 							<ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-								<li><a>
-										<button type="submit" class="MapRoutes" value="Glifada">Glifada</button>
-									</a></li>
-								<li><a>
-										<button type="submit" class="MapRoutes" value="Kifisia">Kifisia</button>
-									</a></li>
-								<li><a>
-										<button type="submit" class="MapRoutes" value="Nom">Nomismatokopeio</button>
-									</a></li>
-
+								<?php foreach ($routes as $route) {
+									if (!isset($route['nickName']) || $route['nickName'] == "") {
+									} else {
+										?>
+										<li><a>
+												<button type="submit" class="MapRoutes"
+												        value="<?php echo $route['nickName']; ?>"><?php echo $route['nickName']; ?></button>
+											</a></li>
+									<?php }
+								} ?>
 							</ul>
 						</div>
 					</small>
@@ -570,6 +570,7 @@
 					icon: "<?= $this->url('img/busIcon3.png'); ?>"
 				});
 			}
+
 			setMarker();
 
 			$("#dropdownForMap_Title").html(temp);

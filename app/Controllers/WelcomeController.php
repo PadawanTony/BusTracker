@@ -3,6 +3,8 @@
 use CodeBurrow\App;
 use CodeBurrow\Repositories\QuoteRepositories\StaticQuoteRepository;
 use CodeBurrow\Repositories\UserRepositories\StaticUserRepository;
+use CodeBurrow\Services\ViewRoutes;
+
 
 /**
  * @author Rizart Dokollari <r.dokollari@gmail.com>
@@ -12,6 +14,9 @@ use CodeBurrow\Repositories\UserRepositories\StaticUserRepository;
  */
 class WelcomeController extends Controller
 {
+
+    private $viewRoutesService;
+
     /**
      * @var StaticUserRepository
      */
@@ -30,6 +35,8 @@ class WelcomeController extends Controller
 
         $this->userRepository = new StaticUserRepository();
         $this->quotesRepository = new StaticQuoteRepository();
+        $this->viewRoutesService = new ViewRoutes();
+
     }
 
     /**
@@ -41,9 +48,12 @@ class WelcomeController extends Controller
 
         $randomQuote = $this->quotesRepository->getRandom();
 
-        $coordinatesUrl = App::url('api/v1/coordinates');
+	    $routes = $this->viewRoutesService->fetchAllRoutes();
+	    $routes = $routes['routes'];
 
-        return $this->views->render('welcome', compact('users', 'title', 'randomQuote', 'coordinatesUrl'));
+	    $coordinatesUrl = App::url('api/v1/coordinates');
+
+        return $this->views->render('welcome', compact('users', 'title', 'randomQuote', 'coordinatesUrl', 'routes'));
     }
 
 

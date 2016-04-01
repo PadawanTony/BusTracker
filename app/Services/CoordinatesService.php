@@ -11,7 +11,7 @@ class CoordinatesService extends Database
 {
 	const GLIFADA = 'Glifada';
 	const KIFISIA = 'Kifisia';
-	const NOM = 'Nom';
+	const NOM = 'Nomismatokopeio';
 
 	/**
 	 * Check, and return coordinates accordingly.
