@@ -551,7 +551,6 @@
 //				console.log(coordinates);
 //				console.log(coordinates.ID);
 //				console.log(coordinates.lat);
-
 			var myLatLong = new google.maps.LatLng(coordinates.lat, coordinates.lng);
 			var mapOptions = {
 				center: myLatLong,

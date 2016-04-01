@@ -67,7 +67,7 @@ class CoordinatesService extends Database
 	 */
 	private function fetchCoordinates($routeId)
 	{
-		$query = "SELECT * FROM Coordinates WHERE routeID = {$routeId} ORDER BY theTime DESC LIMIT 1;";
+		$query = "SELECT * FROM Coordinates WHERE routeID = {$routeId} AND theDate = CURDATE() ORDER BY theTime DESC LIMIT 1;";
 
 		$stmt = $this->getDbConnection()->prepare($query);
 
