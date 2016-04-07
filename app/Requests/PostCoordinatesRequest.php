@@ -12,7 +12,7 @@ use CodeBurrow\Services\CoordinatesService;
 /**
  * Class PostCoordinatesRequest
  *
- * @package HubIT\Requests
+ * @package CodeBurrow\Requests
  */
 class PostCoordinatesRequest extends ApiController
 {

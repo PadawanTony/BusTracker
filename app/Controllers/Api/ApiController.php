@@ -10,7 +10,7 @@ namespace CodeBurrow\Controllers\Api;
 /**
  * Class ApiController
  *
- * @package HubIT\Controllers\Api
+ * @package CodeBurrow\Controllers\Api
  */
 class ApiController
 {
@@ -30,6 +30,16 @@ class ApiController
 	}
 
 	/**
+	 * @param string $message
+	 *
+	 * @return mixed
+	 */
+	public function respondNoCoordinates($message = 'There is no route taking place at this time. <br> Please look at the \'Schedule\' section above for the next route.')
+	{
+		return $this->setStatusCode(422)->respondWithError($message);
+	}
+
+	/**
 	 * @param $message
 	 *
 	 * @return mixed
@@ -37,7 +47,7 @@ class ApiController
 	public function respondWithError($message)
 	{
 		return $this->respond([
-			'error' => [
+			'theError' => [
 				'message'     => $message,
 				'status_code' => $this->getStatusCode(),
 			],

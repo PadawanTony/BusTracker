@@ -542,39 +542,47 @@
 		});
 		request.done(function (results) {
 			var mapContainer = document.getElementById("googleMap");
-			var coordinates = JSON.parse(results).data;
-			var temp = coordinates.prefix + clickBtnTitle;
+			var errorMsg = JSON.parse(results).theError;
+
+			//Check if coordinates have been uploaded for today
+			if (errorMsg) {
+				$( "div#googleMap" )
+					.html( "<div class='container'><div class='row'><div class='col-xs-12 text-center'><br><a href='#schedule'><div class='btn-lg btn-danger center-block'>" + errorMsg.message + "</div></a></div></div></div>" );
+			} else {
+				var coordinates = JSON.parse(results).data;
+				var temp = coordinates.prefix + clickBtnTitle;
 
 //				/** Debugging **/
 //				console.log(coordinates);
 //				console.log(coordinates.ID);
 //				console.log(coordinates.lat);
-			var myLatLong = new google.maps.LatLng(coordinates.lat, coordinates.lng);
-			var mapOptions = {
-				center: myLatLong,
-				zoom: 16,
-				scrollwheel: false,
-				navigationControl: true,
-				mapTypeControl: true,
-				scaleControl: true,
-				draggable: false,
-				mapTypeId: google.maps.MapTypeId.ROADMAP
-			};
-			map = new google.maps.Map(mapContainer, mapOptions);
+				var myLatLong = new google.maps.LatLng(coordinates.lat, coordinates.lng);
+				var mapOptions = {
+					center: myLatLong,
+					zoom: 16,
+					scrollwheel: false,
+					navigationControl: true,
+					mapTypeControl: true,
+					scaleControl: true,
+					draggable: false,
+					mapTypeId: google.maps.MapTypeId.ROADMAP
+				};
+				map = new google.maps.Map(mapContainer, mapOptions);
 
-			function setMarker() {
-				marker = new google.maps.Marker({
-					position: myLatLong,
-					map: map,
-					title: temp,
-					icon: "<?= $this->url('img/busIcon3.png'); ?>"
-				});
+				function setMarker() {
+					marker = new google.maps.Marker({
+						position: myLatLong,
+						map: map,
+						title: temp,
+						icon: "<?= $this->url('img/busIcon3.png'); ?>"
+					});
+				}
+
+				setMarker();
+
+				$("#dropdownForMap_Title").html(temp);
+				temp = "";
 			}
-
-			setMarker();
-
-			$("#dropdownForMap_Title").html(temp);
-			temp = "";
 		});
 	}
 

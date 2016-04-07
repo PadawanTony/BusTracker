@@ -46,6 +46,7 @@ $mux->get("{$baseUrl}admin/routes/delete", 'CodeBurrow\Controllers\Admin\RoutesC
 $mux->post("{$baseUrl}admin/routes/delete", 'CodeBurrow\Controllers\Admin\RoutesController:postDelete');
 $mux->get("{$baseUrl}admin/routes/edit", 'CodeBurrow\Controllers\Admin\RoutesController:edit');
 $mux->post("{$baseUrl}admin/routes/edit", 'CodeBurrow\Controllers\Admin\RoutesController:postEdit');
+$mux->get("{$baseUrl}admin/stops/create", 'CodeBurrow\Controllers\Admin\StopsController:create');
 
 // Api
 $mux->post("{$baseUrl}api/v1/coordinates", 'CodeBurrow\Controllers\Api\ApiCoordinatesController:getCoordinates');

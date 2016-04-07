@@ -34,7 +34,7 @@ class ApiCoordinatesController extends ApiController
 	}
 
 	/**
-	 * Async return coordinate resulsts.
+	 * Async return coordinate results.
 	 *
 	 * @return string
 	 */
@@ -46,7 +46,7 @@ class ApiCoordinatesController extends ApiController
 
 		$coordinates = $this->coordinatesService->getCoordinates($location);
 
-		if ( ! $coordinates ) return $this->respondInternalServerError();
+		if ( ! $coordinates ) return $this->respondNoCoordinates();
 
 		return $this->respondWithSuccess(
 			$this->apiCoordinatesTransformer->transform($coordinates)

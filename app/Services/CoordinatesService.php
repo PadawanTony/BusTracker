@@ -5,7 +5,7 @@ use CodeBurrow\Database;
 /**
  * Class CoordinatesService
  *
- * @package HubIT\Services
+ * @package CodeBurrow\Services
  */
 class CoordinatesService extends Database
 {
