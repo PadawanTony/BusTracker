@@ -1,6 +1,6 @@
 <?php
 /**
- * @author Rizart Dokollari <r.dokollari@gmail.com>
+ * @author Antony Kalogeropoulos <anthonykalogeropoulos@gmail.com>
  * @since  10/03/16
  */
 

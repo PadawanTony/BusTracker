@@ -5,7 +5,7 @@ use CodeBurrow\Services\CoordinatesService;
 use CodeBurrow\Transformers\ApiCoordinatesTransformer;
 
 /**
- * @author Rizart Dokollari <r.dokollari@gmail.com>
+ * @author Antony Kalogeropoulos <anthonykalogeropoulos@gmail.com>
  * @since  10/03/16
  */
 class ApiCoordinatesController extends ApiController

@@ -1,8 +1,4 @@
 <?php
-/**
- * @author Rizart Dokollari <r.dokollari@gmail.com>
- * @since  10/03/16
- */
 /* Change the Time-Zone */
 ini_set('date.timezone', 'Europe/Athens');
 

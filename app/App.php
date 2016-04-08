@@ -1,8 +1,4 @@
 <?php
-/**
- * @author Rizart Dokollari <r.dokollari@gmail.com>
- * @since  10/03/16
- */
 namespace CodeBurrow;
 
 /**

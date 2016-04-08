@@ -3,8 +3,6 @@
 /**
  * Abstract Class. Transforms collection array.
  *
- * @author Rizart Dokollari <r.dokollari@gmail.com>
- * @since  10/03/16
  */
 abstract class Transformer
 {

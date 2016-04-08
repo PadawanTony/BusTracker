@@ -7,7 +7,6 @@ use CodeBurrow\Services\ViewRoutes;
 
 
 /**
- * @author Rizart Dokollari <r.dokollari@gmail.com>
  * @author Antony Kalogeropoulos <anthonykalogeropoulos@gmail.com>
  *
  * @since  6/14/2015

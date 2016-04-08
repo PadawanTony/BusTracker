@@ -1,6 +1,6 @@
 <?php
 /**
- * @author Rizart Dokollari <r.dokollari@gmail.com>
+ * @author Antony Kalogeropoulos <anthonykalogeropoulos@gmail.com>
  * @since  26/03/16
  */
 namespace CodeBurrow\Controllers\Admin;

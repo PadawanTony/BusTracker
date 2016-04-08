@@ -4,7 +4,7 @@ use CodeBurrow\Extension\AppUrlExtension;
 use League\Plates\Engine;
 
 /**
- * @author Rizart Dokollari
+ * @author Antony Kalogeropoulos
  * @since 6/14/2015
  */
 class Controller
