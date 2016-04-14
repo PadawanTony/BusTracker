@@ -3,6 +3,7 @@
 use CodeBurrow\App;
 use CodeBurrow\Repositories\QuoteRepositories\StaticQuoteRepository;
 use CodeBurrow\Repositories\UserRepositories\StaticUserRepository;
+use CodeBurrow\Services\ViewFaq;
 use CodeBurrow\Services\ViewRoutes;
 
 
@@ -24,8 +25,9 @@ class WelcomeController extends Controller
      * @var StaticQuoteRepository
      */
     private $quotesRepository;
+	private $viewFaqService;
 
-    /**
+	/**
      * WelcomeController constructor.
      */
     public function __construct()
@@ -35,6 +37,7 @@ class WelcomeController extends Controller
         $this->userRepository = new StaticUserRepository();
         $this->quotesRepository = new StaticQuoteRepository();
         $this->viewRoutesService = new ViewRoutes();
+	    $this->viewFaqService = new ViewFaq();
 
     }
 
@@ -45,6 +48,9 @@ class WelcomeController extends Controller
     {
         $title = 'Bus Tracker';
 
+	    $faq = $this->viewFaqService->fetchAllFaq();
+	    $faq = $faq['faq'];
+
         $randomQuote = $this->quotesRepository->getRandom();
 
 	    $routes = $this->viewRoutesService->fetchAllRoutes();
@@ -52,7 +58,7 @@ class WelcomeController extends Controller
 
 	    $coordinatesUrl = App::url('api/v1/coordinates');
 
-        return $this->views->render('welcome', compact('users', 'title', 'randomQuote', 'coordinatesUrl', 'routes'));
+        return $this->views->render('welcome', compact('users', 'faq', 'title', 'randomQuote', 'coordinatesUrl', 'routes'));
     }
 
 

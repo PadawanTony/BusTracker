@@ -32,6 +32,8 @@
 
 	<!--Import Google Maps API-->
 	<!--	<script src="http://maps.googleapis.com/maps/api/js"></script>-->
+
+
 </head>
 
 <body>
@@ -84,7 +86,39 @@
 
 				<p class="lead"> All students can ride the bus for <b><u>FREE</u></b>. The bus has scheduled routes and
 					predetermined stations while it encompasses a large district of transportation. There are routes to
-					Glifada, Kiffisia, as well as the Nomismatokopeio Metro station. </p>
+					Glifada, Kiffisia, as well as the Nomismatokopeio Metro station.
+				</p>
+				<br>
+
+				<h2> Frequently Asked Questions </h2>
+				<?php foreach ($faq as $item) { ?>
+					<div class="container">
+						<button type="button" style="background-color: lightblue;" class="btn btn-block btn-default"
+						        data-toggle="collapse"
+						        data-target="#demo<?php echo $item['ID']; ?>">
+							<?php echo $item['questionENG']; ?> <i class="pull-right fa fa-chevron-down"
+							                                       aria-hidden="true"></i>
+						</button>
+						<div id="demo<?php echo $item['ID']; ?>" class="collapse">
+							<?php echo $item['answerENG']; ?>
+						</div>
+					</div>
+				<?php } ?>
+				<br>
+				<br>
+
+				<div class="row">
+					<div class="col-lg-12 text-center">
+						<h2>Attribution</h2>
+						<ul style="list-style-type: none;">
+							<li>Software Development Capstone Project – IT Department, The American College of Greece
+							</li>
+							<li>Spring Semester 2016</li>
+							<li>Developed by: Antony Kalogeropoulos</li>
+							<li>Supervisor: Prof. E. Vagianou</li>
+						</ul>
+					</div>
+				</div>
 			</div>
 		</div><!-- /.row -->
 	</div><!-- /.container -->
@@ -546,8 +580,8 @@
 
 			//Check if coordinates have been uploaded for today
 			if (errorMsg) {
-				$( "div#googleMap" )
-					.html( "<div class='container'><div class='row'><div class='col-xs-12 text-center'><br><a href='#schedule'><div class='btn-lg btn-danger center-block'>" + errorMsg.message + "</div></a></div></div></div>" );
+				$("div#googleMap")
+					.html("<div class='container'><div class='row'><div class='col-xs-12 text-center'><br><a href='#schedule'><div class='btn-lg btn-danger center-block'>" + errorMsg.message + "</div></a></div></div></div>");
 			} else {
 				var coordinates = JSON.parse(results).data;
 				var temp = coordinates.prefix + clickBtnTitle;
@@ -605,6 +639,7 @@
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB19HgdXxADeLSEIURE4xivOI0OXwXpY5U"
         type="text/javascript">
 </script>
+
 
 </body>
 
