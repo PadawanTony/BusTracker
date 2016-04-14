@@ -99,7 +99,7 @@
 							<?php echo $item['questionENG']; ?> <i class="pull-right fa fa-chevron-down"
 							                                       aria-hidden="true"></i>
 						</button>
-						<div id="demo<?php echo $item['ID']; ?>" class="collapse">
+						<div id="demo<?php echo $item['ID']; ?>" class="collapse <?php if ($item['ID']==1) echo 'in'; ?>">
 							<?php echo $item['answerENG']; ?>
 						</div>
 					</div>
