@@ -26,28 +26,30 @@ class ViewFaq extends Database
 		
 		//fetching all the rows from the query
 		$row_faq = $stmt_faq->fetchAll();
-		
-		if ( !empty($row_faq) ) {
-			$response["success"] = 1;
-			$response["faq"] = array();
-			$response["message"] = "Here are All the FAQ";
-			
-			foreach ($row_faq as $faq) {
-				$thefaq = array();
-				$thefaq["ID"] = $faq["ID"];
-				$thefaq["questionENG"] = $faq["questionENG"];
-				$thefaq["answerENG"] = $faq["answerENG"];
-				array_push($response["faq"], $thefaq);
-			}
-			
-			return $response;
-		} else {
-			// no routes found
-			$response["success"] = 0;
-			$response["message"] = "No FAQ Found";
-			
-			return $response;
-		}
+
+		return $row_faq;
+
+//		if ( !empty($row_faq) ) {
+//			$response["success"] = 1;
+//			$response["faq"] = array();
+//			$response["message"] = "Here are All the FAQ";
+//			
+//			foreach ($row_faq as $faq) {
+//				$thefaq = array();
+//				$thefaq["ID"] = $faq["ID"];
+//				$thefaq["questionENG"] = $faq["questionENG"];
+//				$thefaq["answerENG"] = $faq["answerENG"];
+//				array_push($response["faq"], $thefaq);
+//			}
+//			
+//			return $response;
+//		} else {
+//			// no routes found
+//			$response["success"] = 0;
+//			$response["message"] = "No FAQ Found";
+//			
+//			return $response;
+//		}
 		
 	}
 }

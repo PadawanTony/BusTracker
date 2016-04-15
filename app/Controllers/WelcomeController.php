@@ -5,6 +5,7 @@ use CodeBurrow\Repositories\QuoteRepositories\StaticQuoteRepository;
 use CodeBurrow\Repositories\UserRepositories\StaticUserRepository;
 use CodeBurrow\Services\ViewFaq;
 use CodeBurrow\Services\ViewRoutes;
+use CodeBurrow\Transformers\FaqTransformer;
 
 
 /**
@@ -26,6 +27,7 @@ class WelcomeController extends Controller
      */
     private $quotesRepository;
 	private $viewFaqService;
+	private $FaqTransformer;
 
 	/**
      * WelcomeController constructor.
@@ -38,6 +40,7 @@ class WelcomeController extends Controller
         $this->quotesRepository = new StaticQuoteRepository();
         $this->viewRoutesService = new ViewRoutes();
 	    $this->viewFaqService = new ViewFaq();
+	    $this->FaqTransformer = new FaqTransformer();
 
     }
 
@@ -49,7 +52,7 @@ class WelcomeController extends Controller
         $title = 'Bus Tracker';
 
 	    $faq = $this->viewFaqService->fetchAllFaq();
-	    $faq = $faq['faq'];
+	    $faq = $this->FaqTransformer->transformCollection($faq);
 
         $randomQuote = $this->quotesRepository->getRandom();
 
