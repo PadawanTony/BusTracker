@@ -9,7 +9,7 @@ class DashboardController extends Controller
     {
         parent::__construct();
     }
-
+                                            
     public function dashboard()
     {
         return $this->views->render('dashboard');

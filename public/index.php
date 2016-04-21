@@ -39,6 +39,7 @@ $mux->get("$baseUrl", 'CodeBurrow\Controllers\WelcomeController:index');
 $mux->get("{$baseUrl}404", 'CodeBurrow\Controllers\WelcomeController:error404');
 
 // Admin Panel
+//Routes
 $mux->get("{$baseUrl}admin/dashboard", 'CodeBurrow\Controllers\Admin\DashboardController:dashboard');
 $mux->get("{$baseUrl}admin/routes/create", 'CodeBurrow\Controllers\Admin\RoutesController:create');
 $mux->post("{$baseUrl}admin/routes/create", 'CodeBurrow\Controllers\Admin\RoutesController:postCreate');
@@ -46,7 +47,11 @@ $mux->get("{$baseUrl}admin/routes/delete", 'CodeBurrow\Controllers\Admin\RoutesC
 $mux->post("{$baseUrl}admin/routes/delete", 'CodeBurrow\Controllers\Admin\RoutesController:postDelete');
 $mux->get("{$baseUrl}admin/routes/edit", 'CodeBurrow\Controllers\Admin\RoutesController:edit');
 $mux->post("{$baseUrl}admin/routes/edit", 'CodeBurrow\Controllers\Admin\RoutesController:postEdit');
+//Stops
 $mux->get("{$baseUrl}admin/stops/create", 'CodeBurrow\Controllers\Admin\StopsController:create');
+$mux->post("{$baseUrl}admin/stops/create", 'CodeBurrow\Controllers\Admin\StopsController:postCreate');
+$mux->get("{$baseUrl}admin/stops/delete", 'CodeBurrow\Controllers\Admin\StopsController:delete');
+$mux->post("{$baseUrl}admin/stops/delete", 'CodeBurrow\Controllers\Admin\StopsController:postDelete');
 
 // Api
 $mux->post("{$baseUrl}api/v1/coordinates", 'CodeBurrow\Controllers\Api\ApiCoordinatesController:getCoordinates');

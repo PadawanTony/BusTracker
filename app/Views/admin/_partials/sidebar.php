@@ -48,9 +48,9 @@ use CodeBurrow\App;
 					</li>
 					<li><a><i class="fa fa-map-marker"></i> Bus-Stops <span class="fa fa-chevron-down"></span></a>
 						<ul class="nav child_menu" style="display: none">
-							<li><a href="#">Create Stop</a></li>
-							<li><a href="#">Delete Stop</a></li>
-							<li><a href="#">Update Stop</a></li>
+							<li><a href="<?= $this->url('admin/stops/create') ?>">Create Stop</a></li>
+							<li><a href="<?= $this->url('admin/stops/delete') ?>">Delete Stop</a></li>
+							<li><a href="<?= $this->url('admin/stops/edit') ?>">Update Stop</a></li>
 						</ul>
 					</li>
 					<li><a><i class="fa fa-line-chart"></i> Statistics <span class="fa fa-chevron-down"></span></a>

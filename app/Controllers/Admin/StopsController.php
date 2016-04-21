@@ -5,25 +5,28 @@
  */
 namespace CodeBurrow\Controllers\Admin;
 
-use CodeBurrow\Services\CreateNewRoute;
+use CodeBurrow\Services\CreateNewStop;
+use CodeBurrow\Services\DeleteStops;
 use CodeBurrow\Services\ViewRoutes;
 use CodeBurrow\Services\DeleteRoutes;
 use CodeBurrow\Services\EditRoutes;
+use CodeBurrow\Services\ViewStops;
 
 class StopsController extends Controller
 {
-	private $createNewRouteService;
-	private $viewRoutesService;
-	private $deleteRoutesService;
 	private $editRoutesService;
+	private $createNewStopService;
+	private $viewStopsService;
+	private $deleteStopsService;
 
 	public function __construct()
 	{
 		parent::__construct();
 
-		$this->createNewRouteService = new CreateNewRoute();
-		$this->viewRoutesService = new ViewRoutes();
-		$this->deleteRoutesService = new DeleteRoutes();
+		$this->createNewStopService = new CreateNewStop();
+		$this->viewStopsService = new ViewStops();
+		$this->deleteStopsService = new DeleteStops();
+
 		$this->editRoutesService = new EditRoutes();
 	}
 
@@ -33,16 +36,19 @@ class StopsController extends Controller
 	}
 
 	/**
-	 * Create new Route
+	 * Create new Stop
 	 */
 	public function postCreate()
 	{
-		$response = $this->createNewRouteService->insertNewRoute($_POST);
+
+		var_dump($_POST);
+
+		$response = $this->createNewStopService->insertNewStop($_POST);
 
 		$message = $response[ 'message' ];
 
 		if ($response[ 'success' ]) {
-			return $this->views->render('routes/create', compact('message'));
+			return $this->views->render('stops/create', compact('message'));
 		}
 
 		return $this->views->render('error404');
@@ -50,10 +56,10 @@ class StopsController extends Controller
 
 	public function delete()
 	{
-		$response = $this->viewRoutesService->fetchAllRoutes();
+		$response = $this->viewStopsService->fetchAllStops();
 
 		if ($response[ 'success' ]) {
-			return $this->views->render('routes/delete', compact('response'));
+			return $this->views->render('stops/delete', compact('response'));
 		}
 
 		return $this->views->render('error404');
@@ -61,12 +67,12 @@ class StopsController extends Controller
 
 	public function postDelete()
 	{
-		$successDelete = $this->deleteRoutesService->deleteAllRoutes($_POST);
+		$successDelete = $this->deleteStopsService->deleteAllStops($_POST);
 
-		$response = $this->viewRoutesService->fetchAllRoutes();
+		$response = $this->viewStopsService->fetchAllStops();
 
 		if ($successDelete[ 'success' ]) {
-			return $this->views->render('routes/delete', compact('response','successDelete'));
+			return $this->views->render('stops/delete', compact('response','successDelete'));
 		}
 
 		return $this->views->render('../error404');
